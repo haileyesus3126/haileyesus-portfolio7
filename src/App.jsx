@@ -1,20 +1,13 @@
 import Layout from "./components/Layout/Layout";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
+import Experience from "./components/Experience/Experience";
 
 function App() {
   return (
     <Layout sidebar={<Hero />}>
       <About />
-
-      <section id="experience" className="section">
-        <h2 className="section-heading">
-          <span className="section-number">02.</span>
-          Experience
-        </h2>
-
-        <p>Experience section will go here.</p>
-      </section>
+      <Experience />
 
       <section id="projects" className="section">
         <h2 className="section-heading">
