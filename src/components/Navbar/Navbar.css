@@ -1,0 +1,138 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  padding: 18px 0;
+
+  background: rgba(7, 11, 20, 0.8);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.navbar-logo span {
+  color: var(--color-primary);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-link {
+  position: relative;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: var(--color-text);
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--color-primary);
+
+  transition: width 0.25s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-resume {
+  padding: 10px 16px;
+  font-size: 0.9rem;
+}
+
+.navbar-toggle {
+  display: none;
+
+  background: transparent;
+  border: none;
+
+  color: var(--color-text);
+  font-size: 1.5rem;
+
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .navbar-menu {
+    position: absolute;
+    top: 78px;
+    left: 20px;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 24px;
+
+    background: var(--color-bg-secondary);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .navbar-menu.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+  }
+
+  .navbar-link {
+    padding: 10px 0;
+  }
+
+  .navbar-link::after {
+    display: none;
+  }
+
+  .navbar-resume {
+    margin-top: 8px;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+}
