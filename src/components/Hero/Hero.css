@@ -1,0 +1,252 @@
+.sidebar-hero {
+  width: 100%;
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  min-height: calc(100vh - 144px);
+}
+
+/* ================================
+   INTRO
+================================ */
+
+.sidebar-intro {
+  margin-bottom: 18px;
+
+  color: var(--teal);
+
+  font-family: var(--font-mono);
+  font-size: var(--fz-sm);
+  font-weight: 500;
+
+  letter-spacing: 0.02em;
+}
+
+/* ================================
+   NAME
+================================ */
+
+.sidebar-name {
+  margin-bottom: 18px;
+
+  color: var(--lightest-slate);
+
+  font-size: clamp(3rem, 5vw, 4.7rem);
+  font-weight: 800;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.045em;
+}
+
+/* ================================
+   TAGLINE
+================================ */
+
+.sidebar-tagline {
+  max-width: 500px;
+
+  margin-bottom: 24px;
+
+  color: var(--light-slate);
+
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+}
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.sidebar-description {
+  max-width: 470px;
+
+  color: var(--slate);
+
+  font-size: var(--fz-lg);
+
+  line-height: 1.7;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 16px;
+
+  margin: 48px 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  color: var(--slate);
+
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  transition: var(--transition);
+}
+
+.nav-line {
+  width: 40px;
+  height: 1px;
+
+  background: var(--slate);
+
+  transition: var(--transition);
+}
+
+.sidebar-nav a:hover {
+  color: var(--lightest-slate);
+}
+
+.sidebar-nav a:hover .nav-line {
+  width: 64px;
+
+  background: var(--teal);
+}
+
+.sidebar-nav a:hover .nav-text {
+  color: var(--lightest-slate);
+}
+
+/* ================================
+   SOCIAL LINKS
+================================ */
+
+.sidebar-socials {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.sidebar-socials a {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--slate);
+
+  font-size: 1.4rem;
+
+  transition: var(--transition);
+}
+
+.sidebar-socials a:hover {
+  color: var(--teal);
+
+  transform: translateY(-3px);
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+  .sidebar-hero {
+    max-width: 700px;
+
+    min-height: auto;
+  }
+
+  .sidebar-name {
+    font-size: clamp(3.4rem, 9vw, 5.5rem);
+  }
+
+  .sidebar-tagline {
+    max-width: 620px;
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+  }
+
+  .sidebar-description {
+    max-width: 620px;
+  }
+
+  .sidebar-nav {
+    margin: 40px 0;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .sidebar-intro {
+    margin-bottom: 14px;
+  }
+
+  .sidebar-name {
+    margin-bottom: 16px;
+
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+
+  .sidebar-tagline {
+    margin-bottom: 22px;
+
+    font-size: clamp(1.8rem, 8vw, 2.7rem);
+  }
+
+  .sidebar-description {
+    font-size: 1rem;
+  }
+
+  .sidebar-nav {
+    margin: 36px 0;
+
+    gap: 14px;
+  }
+
+  .sidebar-socials {
+    gap: 16px;
+  }
+}
+
+/* ================================
+   VERY SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .sidebar-name {
+    font-size: 2.7rem;
+  }
+
+  .sidebar-tagline {
+    font-size: 1.8rem;
+  }
+
+  .sidebar-description {
+    line-height: 1.65;
+  }
+
+  .sidebar-nav a {
+    font-size: 11px;
+  }
+}
