@@ -1,18 +1,18 @@
+/* =========================================
+   HERO
+========================================= */
+
 .sidebar-hero {
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
 
   display: flex;
   flex-direction: column;
-
-  justify-content: space-between;
-
-  min-height: calc(100vh - 144px);
 }
 
-/* ================================
+/* =========================================
    INTRO
-================================ */
+========================================= */
 
 .sidebar-intro {
   margin-bottom: 18px;
@@ -23,29 +23,31 @@
   font-size: var(--fz-sm);
   font-weight: 500;
 
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
-/* ================================
+/* =========================================
    NAME
-================================ */
+========================================= */
 
 .sidebar-name {
-  margin-bottom: 18px;
+  max-width: 520px;
+
+  margin-bottom: 22px;
 
   color: var(--lightest-slate);
 
-  font-size: clamp(3rem, 5vw, 4.7rem);
+  font-size: clamp(2.8rem, 4vw, 4rem);
   font-weight: 800;
 
-  line-height: 0.95;
+  line-height: 0.98;
 
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
 }
 
-/* ================================
+/* =========================================
    TAGLINE
-================================ */
+========================================= */
 
 .sidebar-tagline {
   max-width: 500px;
@@ -54,31 +56,31 @@
 
   color: var(--light-slate);
 
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
   font-weight: 700;
 
-  line-height: 1.05;
+  line-height: 1.12;
 
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
 }
 
-/* ================================
+/* =========================================
    DESCRIPTION
-================================ */
+========================================= */
 
 .sidebar-description {
-  max-width: 470px;
+  max-width: 500px;
 
   color: var(--slate);
 
-  font-size: var(--fz-lg);
+  font-size: var(--fz-md);
 
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* ================================
+/* =========================================
    NAVIGATION
-================================ */
+========================================= */
 
 .sidebar-nav {
   display: flex;
@@ -86,9 +88,9 @@
 
   align-items: flex-start;
 
-  gap: 16px;
+  gap: 20px;
 
-  margin: 48px 0;
+  margin-top: 48px;
 }
 
 .sidebar-nav a {
@@ -96,7 +98,7 @@
 
   align-items: center;
 
-  gap: 16px;
+  gap: 18px;
 
   color: var(--slate);
 
@@ -110,13 +112,21 @@
 }
 
 .nav-line {
-  width: 40px;
+  display: block;
+
+  width: 38px;
   height: 1px;
 
   background: var(--slate);
 
   transition: var(--transition);
 }
+
+.nav-text {
+  transition: var(--transition);
+}
+
+/* Hover */
 
 .sidebar-nav a:hover {
   color: var(--lightest-slate);
@@ -132,27 +142,44 @@
   color: var(--lightest-slate);
 }
 
-/* ================================
+/* Active */
+
+.sidebar-nav a.active {
+  color: var(--lightest-slate);
+}
+
+.sidebar-nav a.active .nav-line {
+  width: 64px;
+
+  background: var(--teal);
+}
+
+.sidebar-nav a.active .nav-text {
+  color: var(--lightest-slate);
+}
+
+/* =========================================
    SOCIAL LINKS
-================================ */
+========================================= */
 
 .sidebar-socials {
   display: flex;
 
   align-items: center;
 
-  gap: 18px;
+  gap: 20px;
+
+  margin-top: 42px;
 }
 
 .sidebar-socials a {
-  display: flex;
+  display: grid;
 
-  align-items: center;
-  justify-content: center;
+  place-items: center;
 
   color: var(--slate);
 
-  font-size: 1.4rem;
+  font-size: 1.25rem;
 
   transition: var(--transition);
 }
@@ -163,103 +190,88 @@
   transform: translateY(-3px);
 }
 
-/* ================================
+/* =========================================
    TABLET
-================================ */
+========================================= */
 
 @media (max-width: 1024px) {
   .sidebar-hero {
-    max-width: 700px;
-
-    min-height: auto;
+    max-width: 650px;
   }
 
   .sidebar-name {
-    font-size: clamp(3.4rem, 9vw, 5.5rem);
+    max-width: 600px;
+
+    font-size: clamp(3rem, 8vw, 4.5rem);
   }
 
   .sidebar-tagline {
-    max-width: 620px;
+    max-width: 600px;
 
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
   }
 
   .sidebar-description {
-    max-width: 620px;
+    max-width: 580px;
   }
 
   .sidebar-nav {
-    margin: 40px 0;
+    display: none;
+  }
+
+  .sidebar-socials {
+    margin-top: 36px;
   }
 }
 
-/* ================================
+/* =========================================
    MOBILE
-================================ */
+========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .sidebar-intro {
     margin-bottom: 14px;
+
+    font-size: 12px;
   }
 
   .sidebar-name {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 
-    font-size: clamp(2.8rem, 13vw, 4.5rem);
+    font-size: clamp(2.5rem, 13vw, 3.5rem);
+
+    line-height: 1;
   }
 
   .sidebar-tagline {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
-    font-size: clamp(1.8rem, 8vw, 2.7rem);
+    font-size: clamp(1.5rem, 8vw, 2rem);
+
+    line-height: 1.15;
   }
 
   .sidebar-description {
     font-size: 1rem;
-  }
 
-  .sidebar-nav {
-    margin: 36px 0;
-
-    gap: 14px;
+    line-height: 1.7;
   }
 
   .sidebar-socials {
-    gap: 16px;
+    margin-top: 30px;
   }
 }
 
-/* ================================
-   VERY SMALL MOBILE
-================================ */
+/* =========================================
+   SMALL MOBILE
+========================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .sidebar-name {
-    font-size: 2.7rem;
+    font-size: 2.4rem;
   }
 
   .sidebar-tagline {
-    font-size: 1.8rem;
+    font-size: 1.45rem;
   }
-
-  .sidebar-description {
-    line-height: 1.65;
-  }
-
-  .sidebar-nav a {
-    font-size: 11px;
-  }
-
-}
-.sidebar-nav a.active {
-  color: var(--lightest-slate);
-}
-
-.sidebar-nav a.active .nav-line {
-  width: 64px;
-  background: var(--teal);
-}
-
-.sidebar-nav a.active .nav-text {
-  color: var(--lightest-slate);
 }

@@ -78,7 +78,7 @@ function Hero() {
           href="https://github.com/"
           target="_blank"
           rel="noreferrer"
-          aria-label="GitHub"
+          aria-label="Visit my GitHub profile"
         >
           <FaGithub />
         </a>
@@ -87,7 +87,7 @@ function Hero() {
           href="https://linkedin.com/"
           target="_blank"
           rel="noreferrer"
-          aria-label="LinkedIn"
+          aria-label="Visit my LinkedIn profile"
         >
           <FaLinkedinIn />
         </a>

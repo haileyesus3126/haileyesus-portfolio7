@@ -1,20 +1,24 @@
+/* =========================================
+   MAIN PORTFOLIO LAYOUT
+========================================= */
+
 .portfolio-layout {
-  width: min(1200px, calc(100% - 96px));
+  width: min(1240px, calc(100% - 96px));
 
   margin-inline: auto;
 
   display: grid;
 
   grid-template-columns:
-    minmax(320px, 0.9fr)
-    minmax(0, 1.1fr);
+    minmax(360px, 1fr)
+    minmax(0, 1.15fr);
 
   gap: 88px;
 }
 
-/* ================================
+/* =========================================
    LEFT SIDEBAR
-================================ */
+========================================= */
 
 .portfolio-sidebar {
   position: relative;
@@ -33,12 +37,16 @@
   flex-direction: column;
   justify-content: center;
 
-  padding: 70px 0;
+  /*
+    Extra space at the top keeps the hero
+    away from the fixed navbar.
+  */
+  padding: 105px 0 48px;
 }
 
-/* ================================
+/* =========================================
    RIGHT CONTENT
-================================ */
+========================================= */
 
 .portfolio-content {
   min-width: 0;
@@ -46,21 +54,41 @@
   padding-bottom: 40px;
 }
 
-/* ================================
-   LARGE SCREENS
-================================ */
+/* =========================================
+   LARGE DESKTOP
+========================================= */
 
 @media (min-width: 1400px) {
   .portfolio-layout {
-    width: min(1280px, calc(100% - 120px));
+    width: min(1320px, calc(100% - 120px));
 
-    gap: 110px;
+    grid-template-columns:
+      minmax(390px, 1fr)
+      minmax(0, 1.15fr);
+
+    gap: 100px;
   }
 }
 
-/* ================================
+/* =========================================
+   SMALL DESKTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .portfolio-layout {
+    width: min(1100px, calc(100% - 64px));
+
+    grid-template-columns:
+      minmax(330px, 0.95fr)
+      minmax(0, 1.1fr);
+
+    gap: 64px;
+  }
+}
+
+/* =========================================
    TABLET
-================================ */
+========================================= */
 
 @media (max-width: 1024px) {
   .portfolio-layout {
@@ -87,9 +115,9 @@
   }
 }
 
-/* ================================
+/* =========================================
    MOBILE
-================================ */
+========================================= */
 
 @media (max-width: 768px) {
   .portfolio-layout {
@@ -103,9 +131,9 @@
   }
 }
 
-/* ================================
+/* =========================================
    SMALL MOBILE
-================================ */
+========================================= */
 
 @media (max-width: 480px) {
   .portfolio-layout {

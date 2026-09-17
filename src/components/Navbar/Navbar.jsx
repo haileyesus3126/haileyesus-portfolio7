@@ -18,14 +18,21 @@ function Navbar() {
     { id: "contact", label: "Contact" },
   ];
 
-  const activeSection = useActiveSection(
-    navigation.map((item) => item.id)
-  );
+  const activeSection = useActiveSection([
+    "about",
+    "experience",
+    "projects",
+    "contact",
+  ]);
+
+  /* Show navbar after scrolling */
 
   useEffect(() => {
     function handleScroll() {
       setShowNavbar(window.scrollY > 250);
     }
+
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
 
@@ -33,6 +40,8 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  /* Lock page when mobile menu is open */
 
   useEffect(() => {
     if (menuOpen) {
@@ -46,23 +55,7 @@ function Navbar() {
     };
   }, [menuOpen]);
 
-  useEffect(() => {
-    function handleOutsideClick(event) {
-      if (
-        menuOpen &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target)
-      ) {
-        setMenuOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [menuOpen]);
+  /* Close with Escape */
 
   useEffect(() => {
     function handleEscape(event) {
@@ -84,9 +77,16 @@ function Navbar() {
 
   return (
     <>
-      <header className={`navbar ${showNavbar ? "visible" : ""}`}>
+      <header
+        className={`navbar ${showNavbar ? "visible" : ""}`}
+      >
         <div className="navbar-container">
-          <a href="#home" className="navbar-logo" onClick={closeMenu}>
+          <a
+            href="#home"
+            className="navbar-logo"
+            onClick={closeMenu}
+            aria-label="Go to homepage"
+          >
             HM
           </a>
 
@@ -101,7 +101,10 @@ function Navbar() {
                 href={`#${item.id}`}
                 onClick={closeMenu}
                 className={
-                  activeSection === item.id ? "active" : ""
+                  item.id !== "home" &&
+                  activeSection === item.id
+                    ? "active"
+                    : ""
                 }
               >
                 {item.label}
@@ -121,7 +124,9 @@ function Navbar() {
           <button
             className="navbar-toggle"
             type="button"
-            onClick={() => setMenuOpen((current) => !current)}
+            onClick={() =>
+              setMenuOpen((current) => !current)
+            }
             aria-label={
               menuOpen
                 ? "Close navigation menu"
@@ -135,7 +140,9 @@ function Navbar() {
       </header>
 
       <div
-        className={`navbar-overlay ${menuOpen ? "visible" : ""}`}
+        className={`navbar-overlay ${
+          menuOpen ? "visible" : ""
+        }`}
         onClick={closeMenu}
         aria-hidden="true"
       ></div>

@@ -1,3 +1,7 @@
+/* =========================================
+   NAVBAR
+========================================= */
+
 .navbar {
   position: fixed;
 
@@ -8,16 +12,19 @@
 
   z-index: 1000;
 
-  padding: 18px 40px;
+  padding: 10px 40px;
 
-  background: rgba(10, 25, 47, 0.88);
+  background: rgba(10, 25, 47, 0.92);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  box-shadow: 0 10px 30px rgba(2, 12, 27, 0.3);
+  border-bottom: 1px solid rgba(136, 146, 176, 0.08);
+
+  box-shadow: 0 8px 24px rgba(2, 12, 27, 0.22);
 
   transform: translateY(-100%);
+
   opacity: 0;
 
   transition:
@@ -27,11 +34,12 @@
 
 .navbar.visible {
   transform: translateY(0);
+
   opacity: 1;
 }
 
 .navbar-container {
-  width: min(1200px, 100%);
+  width: min(1240px, 100%);
 
   margin-inline: auto;
 
@@ -41,24 +49,26 @@
   justify-content: space-between;
 }
 
-/* ================================
+/* =========================================
    LOGO
-================================ */
+========================================= */
 
 .navbar-logo {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
 
   display: grid;
+
   place-items: center;
 
   border: 1px solid var(--teal);
+
   border-radius: 50%;
 
   color: var(--teal);
 
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 
   transition: var(--transition);
@@ -70,16 +80,16 @@
   transform: translateY(-2px);
 }
 
-/* ================================
+/* =========================================
    DESKTOP MENU
-================================ */
+========================================= */
 
 .navbar-menu {
   display: flex;
 
   align-items: center;
 
-  gap: 28px;
+  gap: 24px;
 }
 
 .navbar-menu a {
@@ -95,8 +105,6 @@
 
 .navbar-menu a:hover {
   color: var(--teal);
-
-  transform: translateY(-2px);
 }
 
 .navbar-menu a.active {
@@ -118,14 +126,15 @@
   background: var(--teal);
 }
 
-/* ================================
+/* =========================================
    RESUME
-================================ */
+========================================= */
 
 .navbar-resume {
   padding: 8px 14px;
 
   border: 1px solid var(--teal);
+
   border-radius: var(--border-radius);
 
   color: var(--teal) !important;
@@ -135,9 +144,9 @@
   background: var(--teal-tint);
 }
 
-/* ================================
+/* =========================================
    MOBILE BUTTON
-================================ */
+========================================= */
 
 .navbar-toggle {
   display: none;
@@ -148,6 +157,8 @@
 
   padding: 8px;
 
+  border: 0;
+
   background: transparent;
 
   color: var(--teal);
@@ -157,9 +168,9 @@
   cursor: pointer;
 }
 
-/* ================================
+/* =========================================
    OVERLAY
-================================ */
+========================================= */
 
 .navbar-overlay {
   position: fixed;
@@ -168,11 +179,12 @@
 
   z-index: 900;
 
-  background: rgba(2, 12, 27, 0.7);
+  background: rgba(2, 12, 27, 0.72);
 
   backdrop-filter: blur(3px);
 
   opacity: 0;
+
   visibility: hidden;
 
   transition:
@@ -182,24 +194,21 @@
 
 .navbar-overlay.visible {
   opacity: 1;
+
   visibility: visible;
 }
-
-/* ================================
-   LOCK BODY WHEN MOBILE MENU OPEN
-================================ */
 
 body.menu-open {
   overflow: hidden;
 }
 
-/* ================================
-   MOBILE
-================================ */
+/* =========================================
+   TABLET / MOBILE
+========================================= */
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 16px 22px;
+    padding: 12px 20px;
   }
 
   .navbar-toggle {
@@ -214,17 +223,17 @@ body.menu-open {
 
     z-index: 1100;
 
-    width: min(78vw, 360px);
+    width: min(78vw, 340px);
     height: 100vh;
 
-    padding: 110px 40px 40px;
+    padding: 100px 36px 40px;
 
     display: flex;
     flex-direction: column;
 
     align-items: flex-start;
 
-    gap: 28px;
+    gap: 26px;
 
     background: var(--light-navy);
 
@@ -242,15 +251,9 @@ body.menu-open {
   .navbar-menu a {
     width: 100%;
 
-    padding: 4px 0;
+    padding: 5px 0;
 
-    color: var(--light-slate);
-
-    font-size: 15px;
-  }
-
-  .navbar-menu a.active {
-    color: var(--teal);
+    font-size: 14px;
   }
 
   .navbar-menu a.active:not(.navbar-resume)::after {
@@ -260,7 +263,7 @@ body.menu-open {
   .navbar-resume {
     width: auto;
 
-    margin-top: 10px;
+    margin-top: 8px;
 
     padding: 10px 18px;
   }
