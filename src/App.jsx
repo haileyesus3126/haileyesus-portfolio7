@@ -4,24 +4,27 @@ import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
 import FeaturedProjects from "./components/FeaturedProjects/FeaturedProjects";
 import OtherProjects from "./components/OtherProjects/OtherProjects";
+import Contact from "./components/Contact/Contact";
+import EmailSidebar from "./components/EmailSidebar/EmailSidebar";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <Layout sidebar={<Hero />}>
-      <About />
-      <Experience />
-      <FeaturedProjects />
-      <OtherProjects />
+    <>
+      <Navbar />
+      <Layout sidebar={<Hero />}>
+        <About />
+        <Experience />
+        <FeaturedProjects />
+        <OtherProjects />
+        <Contact />
+          <Footer />
+      </Layout>
+     
 
-      <section id="contact" className="section">
-        <h2 className="section-heading">
-          <span className="section-number">04.</span>
-          Contact
-        </h2>
-
-        <p>Contact section will go here.</p>
-      </section>
-    </Layout>
+      <EmailSidebar />
+    </>
   );
 }
 

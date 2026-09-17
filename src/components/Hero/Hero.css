@@ -249,4 +249,17 @@
   .sidebar-nav a {
     font-size: 11px;
   }
+
+}
+.sidebar-nav a.active {
+  color: var(--lightest-slate);
+}
+
+.sidebar-nav a.active .nav-line {
+  width: 64px;
+  background: var(--teal);
+}
+
+.sidebar-nav a.active .nav-text {
+  color: var(--lightest-slate);
 }

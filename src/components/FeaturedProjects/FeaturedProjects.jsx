@@ -3,7 +3,7 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 
-import projects from "../../data/projects";
+import { featuredProjects } from "../../data/projects";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import "./FeaturedProjects.css";
 
@@ -23,7 +23,7 @@ function FeaturedProjects() {
       </h2>
 
       <div className="featured-projects-list">
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <article
             className={`featured-project ${
               index % 2 !== 0 ? "reverse" : ""

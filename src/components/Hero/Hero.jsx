@@ -3,9 +3,33 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 
+import useActiveSection from "../../hooks/useActiveSection";
 import "./Hero.css";
 
 function Hero() {
+  const navigation = [
+    {
+      id: "about",
+      label: "ABOUT",
+    },
+    {
+      id: "experience",
+      label: "EXPERIENCE",
+    },
+    {
+      id: "projects",
+      label: "PROJECTS",
+    },
+    {
+      id: "contact",
+      label: "CONTACT",
+    },
+  ];
+
+  const activeSection = useActiveSection(
+    navigation.map((item) => item.id)
+  );
+
   return (
     <div className="sidebar-hero" id="home">
       <div className="sidebar-hero-top">
@@ -22,32 +46,31 @@ function Hero() {
         </h2>
 
         <p className="sidebar-description">
-          I'm a Junior Software Developer and Website Developer focused on
-          building web applications, internal business tools, and automation
-          solutions.
+          I'm a Junior Software Developer and Website Developer
+          focused on building web applications, internal business
+          tools, and automation solutions.
         </p>
       </div>
 
-      <nav className="sidebar-nav" aria-label="Section navigation">
-        <a href="#about">
-          <span className="nav-line"></span>
-          <span className="nav-text">ABOUT</span>
-        </a>
+      <nav
+        className="sidebar-nav"
+        aria-label="Section navigation"
+      >
+        {navigation.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={
+              activeSection === item.id ? "active" : ""
+            }
+          >
+            <span className="nav-line"></span>
 
-        <a href="#experience">
-          <span className="nav-line"></span>
-          <span className="nav-text">EXPERIENCE</span>
-        </a>
-
-        <a href="#projects">
-          <span className="nav-line"></span>
-          <span className="nav-text">PROJECTS</span>
-        </a>
-
-        <a href="#contact">
-          <span className="nav-line"></span>
-          <span className="nav-text">CONTACT</span>
-        </a>
+            <span className="nav-text">
+              {item.label}
+            </span>
+          </a>
+        ))}
       </nav>
 
       <div className="sidebar-socials">

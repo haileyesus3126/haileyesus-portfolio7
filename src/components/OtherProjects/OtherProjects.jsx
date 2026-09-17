@@ -6,7 +6,6 @@ import {
 
 import { otherProjects } from "../../data/projects";
 import useScrollReveal from "../../hooks/useScrollReveal";
-
 import "./OtherProjects.css";
 
 function OtherProjects() {

@@ -1,21 +1,25 @@
 .portfolio-layout {
-  width: min(1200px, calc(100% - 80px));
+  width: min(1200px, calc(100% - 96px));
 
   margin-inline: auto;
 
   display: grid;
 
   grid-template-columns:
-    minmax(320px, 40%)
-    minmax(0, 60%);
+    minmax(320px, 0.9fr)
+    minmax(0, 1.1fr);
 
-  gap: 80px;
+  gap: 88px;
 }
 
-/* LEFT SIDE */
+/* ================================
+   LEFT SIDEBAR
+================================ */
 
 .portfolio-sidebar {
   position: relative;
+
+  min-width: 0;
 }
 
 .portfolio-sidebar-inner {
@@ -29,63 +33,86 @@
   flex-direction: column;
   justify-content: center;
 
-  padding: 72px 0;
+  padding: 70px 0;
 }
 
-/* RIGHT SIDE */
+/* ================================
+   RIGHT CONTENT
+================================ */
 
 .portfolio-content {
   min-width: 0;
 
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
-/* TABLET */
+/* ================================
+   LARGE SCREENS
+================================ */
+
+@media (min-width: 1400px) {
+  .portfolio-layout {
+    width: min(1280px, calc(100% - 120px));
+
+    gap: 110px;
+  }
+}
+
+/* ================================
+   TABLET
+================================ */
 
 @media (max-width: 1024px) {
   .portfolio-layout {
-    width: min(100% - 64px, 800px);
+    width: min(760px, calc(100% - 64px));
 
-    grid-template-columns: 1fr;
-
-    gap: 0;
+    display: block;
   }
 
   .portfolio-sidebar-inner {
     position: relative;
 
-    height: auto;
+    top: auto;
 
+    height: auto;
     min-height: 100vh;
 
-    padding: 120px 0 80px;
+    padding: 120px 0 90px;
   }
 
   .portfolio-content {
-    padding-bottom: 60px;
+    width: 100%;
+
+    padding-bottom: 40px;
   }
 }
 
-/* MOBILE */
+/* ================================
+   MOBILE
+================================ */
 
 @media (max-width: 768px) {
   .portfolio-layout {
-    width: min(100% - 40px, 700px);
+    width: min(100% - 40px, 680px);
   }
 
   .portfolio-sidebar-inner {
     min-height: auto;
 
-    padding: 100px 0 70px;
+    padding: 110px 0 70px;
   }
 }
 
+/* ================================
+   SMALL MOBILE
+================================ */
+
 @media (max-width: 480px) {
   .portfolio-layout {
-    width: min(100% - 28px, 700px);
+    width: min(100% - 28px, 680px);
   }
 
   .portfolio-sidebar-inner {
-    padding: 90px 0 60px;
+    padding: 95px 0 60px;
   }
 }
