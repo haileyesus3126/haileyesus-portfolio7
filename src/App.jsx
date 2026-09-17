@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   return (
@@ -6,12 +7,7 @@ function App() {
       <Navbar />
 
       <main>
-        <section className="section" style={{ paddingTop: "140px" }}></section>
-        <section className="section">
-          <div className="container">
-            <h1>Haileyesus Portfolio</h1>
-          </div>
-        </section>
+        <Hero />
       </main>
     </>
   );
