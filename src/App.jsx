@@ -3,6 +3,7 @@ import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
 import FeaturedProjects from "./components/FeaturedProjects/FeaturedProjects";
+import OtherProjects from "./components/OtherProjects/OtherProjects";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <About />
       <Experience />
       <FeaturedProjects />
+      <OtherProjects />
 
       <section id="contact" className="section">
         <h2 className="section-heading">
