@@ -2,7 +2,7 @@ const experience = [
   {
     company: "Yosal PLC",
     role: "Website Developer",
-    period: "March 2022 - Present",
+    period: "june 2024 - Present",
     location: "Addis Ababa, Ethiopia",
     bullets: [
       "Maintain and improve company website-related content and workflows.",

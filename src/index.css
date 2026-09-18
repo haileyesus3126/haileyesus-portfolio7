@@ -1,21 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
+/* =========================================
+   DESIGN TOKENS
+   Ethiopian-inspired, but still professional
+========================================= */
+
 :root {
-  --navy: #0a192f;
-  --light-navy: #112240;
-  --lightest-navy: #233554;
+  /* Main backgrounds */
+  --navy: #081525;
+  --light-navy: #0f2238;
+  --lightest-navy: #18324f;
 
-  --slate: #8892b0;
-  --light-slate: #a8b2d1;
-  --lightest-slate: #ccd6f6;
-  --white: #e6f1ff;
+  /* Ethiopian flag colors */
+  --ethiopian-green: #078930;
+  --ethiopian-green-light: #18b64b;
 
-  --teal: #64ffda;
-  --teal-tint: rgba(100, 255, 218, 0.1);
+  --ethiopian-yellow: #fcd116;
+  --ethiopian-gold: #d7ad0d;
 
+  --ethiopian-red: #da121a;
+  --ethiopian-red-light: #ef4444;
+
+  /* Primary accent */
+  --teal: var(--ethiopian-green-light);
+
+  /* Accent tints */
+  --teal-tint: rgba(24, 182, 75, 0.1);
+  --green-tint: rgba(24, 182, 75, 0.1);
+  --yellow-tint: rgba(252, 209, 22, 0.1);
+  --red-tint: rgba(218, 18, 26, 0.1);
+
+  /* Text colors */
+  --slate: #94a3b8;
+  --light-slate: #c3cee3;
+  --lightest-slate: #edf3ff;
+  --white: #f8fafc;
+
+  /* Borders */
+  --border-color: rgba(148, 163, 184, 0.16);
+
+  /* Fonts */
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
+  /* Font sizes */
   --fz-xs: 13px;
   --fz-sm: 14px;
   --fz-md: 16px;
@@ -24,13 +52,17 @@
   --fz-xxl: 22px;
   --fz-heading: 32px;
 
+  /* Layout */
+  --container-width: 1200px;
   --border-radius: 4px;
 
-  --transition: all 0.25s
-    cubic-bezier(0.645, 0.045, 0.355, 1);
-
-  --container-width: 1200px;
+  /* Transition */
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
 
 *,
 *::before,
@@ -40,6 +72,9 @@
 
 html {
   scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightest-navy) var(--navy);
 }
 
 body {
@@ -48,7 +83,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  background: var(--navy);
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(7, 137, 48, 0.04),
+      transparent 30%
+    ),
+    var(--navy);
+
   color: var(--slate);
 
   font-family: var(--font-sans);
@@ -58,6 +100,14 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+#root {
+  min-height: 100vh;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
 
 body::-webkit-scrollbar {
   width: 8px;
@@ -69,21 +119,17 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background: var(--lightest-navy);
+
   border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: var(--slate);
+  background: var(--ethiopian-green-light);
 }
 
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--lightest-navy) var(--navy);
-}
-
-#root {
-  min-height: 100vh;
-}
+/* =========================================
+   TYPOGRAPHY
+========================================= */
 
 h1,
 h2,
@@ -105,6 +151,7 @@ p {
 
 a {
   color: inherit;
+
   text-decoration: none;
 
   transition: var(--transition);
@@ -123,6 +170,7 @@ button {
 img,
 svg {
   display: block;
+
   max-width: 100%;
 }
 
@@ -134,10 +182,19 @@ ol {
   list-style: none;
 }
 
+/* =========================================
+   TEXT SELECTION
+========================================= */
+
 ::selection {
-  background: var(--lightest-navy);
+  background: rgba(24, 182, 75, 0.22);
+
   color: var(--lightest-slate);
 }
+
+/* =========================================
+   SHARED CONTAINER
+========================================= */
 
 .container {
   width: min(
@@ -148,10 +205,14 @@ ol {
   margin-inline: auto;
 }
 
-/* section structure */
+/* =========================================
+   SECTION STRUCTURE
+========================================= */
 
 .section {
-  padding: 100px 0;
+  padding: 110px 0;
+
+  scroll-margin-top: 90px;
 }
 
 .section-heading {
@@ -164,11 +225,18 @@ ol {
 
   color: var(--lightest-slate);
 
-  font-size: clamp(24px, 5vw, var(--fz-heading));
+  font-size: clamp(
+    24px,
+    5vw,
+    var(--fz-heading)
+  );
+
   font-weight: 700;
 
   white-space: nowrap;
 }
+
+/* Ethiopian gradient divider */
 
 .section-heading::after {
   content: "";
@@ -180,33 +248,48 @@ ol {
 
   margin-left: 20px;
 
-  background: var(--lightest-navy);
+  background: linear-gradient(
+    90deg,
+    var(--ethiopian-green),
+    var(--ethiopian-yellow),
+    var(--ethiopian-red)
+  );
+
+  opacity: 0.45;
 }
+
+/* Section number */
 
 .section-number {
   margin-right: 10px;
 
-  color: var(--teal);
+  color: var(--ethiopian-green-light);
 
   font-family: var(--font-mono);
+
   font-size: 0.65em;
   font-weight: 400;
 }
 
-/* shared button */
+/* =========================================
+   SHARED OUTLINE BUTTON
+========================================= */
 
 .outline-button {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   padding: 0.9rem 1.4rem;
 
-  border: 1px solid var(--teal);
+  border: 1px solid var(--ethiopian-green-light);
+
   border-radius: var(--border-radius);
 
   background: transparent;
-  color: var(--teal);
+
+  color: var(--ethiopian-green-light);
 
   font-family: var(--font-mono);
   font-size: var(--fz-sm);
@@ -217,17 +300,23 @@ ol {
 }
 
 .outline-button:hover {
-  background: var(--teal-tint);
+  border-color: var(--ethiopian-yellow);
+
+  background: var(--yellow-tint);
+
+  color: var(--ethiopian-yellow);
 
   transform: translateY(-2px);
 }
 
-/* links */
+/* =========================================
+   INLINE LINKS
+========================================= */
 
 .inline-link {
   position: relative;
 
-  color: var(--teal);
+  color: var(--ethiopian-green-light);
 }
 
 .inline-link::after {
@@ -241,7 +330,12 @@ ol {
   width: 0;
   height: 1px;
 
-  background: var(--teal);
+  background: linear-gradient(
+    90deg,
+    var(--ethiopian-green),
+    var(--ethiopian-yellow),
+    var(--ethiopian-red)
+  );
 
   transition: width 0.2s ease;
 }
@@ -250,7 +344,9 @@ ol {
   width: 100%;
 }
 
-/* scroll reveal foundation */
+/* =========================================
+   SCROLL REVEAL
+========================================= */
 
 [data-reveal] {
   opacity: 0;
@@ -268,77 +364,6 @@ ol {
   transform: translateY(0);
 }
 
-/* accessibility */
-
-:focus-visible {
-  outline: 2px solid var(--teal);
-  outline-offset: 4px;
-}
-
-/* tablet */
-
-@media (max-width: 1024px) {
-  .section {
-    padding: 80px 0;
-  }
-
-  .section-heading::after {
-    width: 180px;
-  }
-}
-
-/* mobile */
-
-@media (max-width: 768px) {
-  .container {
-    width: min(
-      calc(100% - 32px),
-      var(--container-width)
-    );
-  }
-
-  .section {
-    padding: 70px 0;
-  }
-
-  .section-heading {
-    margin-bottom: 30px;
-  }
-
-  .section-heading::after {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    width: min(
-      calc(100% - 24px),
-      var(--container-width)
-    );
-  }
-
-  .section {
-    padding: 60px 0;
-  }
-}
-
-/* reduced motion */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-
-    transition-duration: 0.01ms !important;
-  }
-}
 /* =========================================
    ACCESSIBILITY
 ========================================= */
@@ -355,7 +380,7 @@ ol {
 
   border-radius: var(--border-radius);
 
-  background: var(--teal);
+  background: var(--ethiopian-yellow);
 
   color: var(--navy);
 
@@ -373,11 +398,69 @@ ol {
 }
 
 :focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 2px solid var(--ethiopian-yellow);
 
   outline-offset: 4px;
 
   border-radius: 2px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .section-heading::after {
+    width: 180px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .container {
+    width: min(
+      calc(100% - 32px),
+      var(--container-width)
+    );
+  }
+
+  .section {
+    padding: 70px 0;
+
+    scroll-margin-top: 80px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading::after {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .container {
+    width: min(
+      calc(100% - 24px),
+      var(--container-width)
+    );
+  }
+
+  .section {
+    padding: 60px 0;
+  }
 }
 
 /* =========================================

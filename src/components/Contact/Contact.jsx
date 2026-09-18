@@ -1,3 +1,8 @@
+import {
+  FaEnvelope,
+  FaArrowUpRightFromSquare,
+} from "react-icons/fa6";
+
 import useScrollReveal from "../../hooks/useScrollReveal";
 import "./Contact.css";
 
@@ -12,32 +17,78 @@ function Contact() {
       data-reveal
       aria-labelledby="contact-heading"
     >
-      <p className="contact-number">
-        04. What&apos;s Next?
-      </p>
+      <div
+        className="contact-glow contact-glow-left"
+        aria-hidden="true"
+      ></div>
 
-      <h2
-        id="contact-heading"
-        className="contact-title"
-      >
-        Get In Touch
-      </h2>
+      <div
+        className="contact-glow contact-glow-right"
+        aria-hidden="true"
+      ></div>
 
-      <p className="contact-description">
-        I&apos;m interested in software development,
-        website development, backend development,
-        and automation opportunities. If you have a
-        role, project, or question, feel free to
-        contact me.
-      </p>
+      <div className="contact-content">
+        <p className="contact-number">
+          ፬. What&apos;s Next?
+        </p>
 
-      <a
-        href="mailto:Haileyesus2024@gmail.com"
-        className="outline-button contact-button"
-        aria-label="Send an email to Haileyesus Mesfin"
-      >
-        Say Hello
-      </a>
+        <h2
+          id="contact-heading"
+          className="contact-title"
+        >
+          Let&apos;s Build Something
+          <span> Meaningful.</span>
+        </h2>
+
+        <p className="contact-description">
+          I&apos;m open to opportunities in software development,
+          website development, backend development, and automation.
+          If you have a role, project, collaboration, or simply want
+          to connect, I&apos;d be happy to hear from you.
+        </p>
+
+        <a
+          href="mailto:Haileyesus2024@gmail.com"
+          className="contact-email"
+          aria-label="Send an email to Haileyesus Mesfin"
+        >
+          <FaEnvelope aria-hidden="true" />
+
+          <span>
+            Haileyesus2024@gmail.com
+          </span>
+        </a>
+
+        <div className="contact-actions">
+          <a
+            href="mailto:Haileyesus2024@gmail.com"
+            className="contact-button contact-button-primary"
+          >
+            Say Hello
+
+            <FaArrowUpRightFromSquare
+              aria-hidden="true"
+            />
+          </a>
+
+          <a
+            href="/Haileyesus_Mesfin_CV.pdf"
+            className="contact-button contact-button-secondary"
+            download
+          >
+            Download Resume
+          </a>
+        </div>
+
+        <div
+          className="contact-ethiopian-line"
+          aria-hidden="true"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </section>
   );
 }

@@ -1,10 +1,14 @@
+/* =========================================
+   OTHER PROJECTS
+========================================= */
+
 .other-projects {
   min-height: auto;
 }
 
-/* ================================
+/* =========================================
    HEADER
-================================ */
+========================================= */
 
 .other-projects-header {
   display: flex;
@@ -12,190 +16,367 @@
   align-items: flex-end;
   justify-content: space-between;
 
-  gap: 24px;
+  gap: 32px;
 
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+}
+
+.other-projects-kicker {
+  margin-bottom: 8px;
+
+  color: var(--ethiopian-green-light);
+
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
 }
 
 .other-projects-title {
   color: var(--lightest-slate);
 
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
 
-  font-weight: 700;
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
 }
 
 .other-projects-subtitle {
-  color: var(--teal);
+  max-width: 280px;
 
-  font-family: var(--font-mono);
-  font-size: var(--fz-xs);
+  color: var(--slate);
+
+  font-size: 0.95rem;
+
+  line-height: 1.6;
+
+  text-align: right;
 }
 
-/* ================================
+/* =========================================
    GRID
-================================ */
+========================================= */
 
 .other-projects-grid {
   display: grid;
 
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 16px;
+  gap: 20px;
 }
 
-/* ================================
+/* =========================================
    CARD
-================================ */
+========================================= */
 
 .project-card {
   position: relative;
 
-  min-height: 320px;
+  min-height: 360px;
 
   display: flex;
   flex-direction: column;
 
-  padding: 28px;
+  overflow: hidden;
 
-  background: var(--light-navy);
+  padding: 32px;
 
-  border-radius: var(--border-radius);
+  border: 1px solid rgba(148, 163, 184, 0.1);
 
-  box-shadow: 0 10px 30px rgba(2, 12, 27, 0.25);
+  border-radius: 10px;
 
-  transition: var(--transition);
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(24, 182, 75, 0.06),
+      transparent 35%
+    ),
+    var(--light-navy);
+
+  box-shadow:
+    0 12px 30px rgba(2, 12, 27, 0.2);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
 
-  box-shadow: 0 18px 40px rgba(2, 12, 27, 0.4);
+  border-color: rgba(24, 182, 75, 0.35);
+
+  box-shadow:
+    0 22px 45px rgba(2, 12, 27, 0.36);
 }
 
-/* ================================
-   TOP
-================================ */
+/* =========================================
+   ETHIOPIAN ACCENT
+========================================= */
 
-.project-card-top {
+.project-card-accent {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    var(--ethiopian-green) 0%,
+    var(--ethiopian-green) 33.33%,
+    var(--ethiopian-yellow) 33.33%,
+    var(--ethiopian-yellow) 66.66%,
+    var(--ethiopian-red) 66.66%,
+    var(--ethiopian-red) 100%
+  );
+
+  opacity: 0.35;
+
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card-accent {
+  opacity: 1;
+}
+
+/* =========================================
+   PROJECT NUMBER
+========================================= */
+
+.project-card-number {
+  position: absolute;
+
+  top: 18px;
+  right: 22px;
+
+  color: rgba(252, 209, 22, 0.16);
+
+  font-family: var(--font-ethiopic, sans-serif);
+
+  font-size: 4rem;
+  font-weight: 700;
+
+  line-height: 1;
+
+  pointer-events: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-card:hover .project-card-number {
+  color: rgba(252, 209, 22, 0.28);
+
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   META
+========================================= */
+
+.project-card-meta {
+  position: relative;
+
+  z-index: 2;
+
   display: flex;
 
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 28px;
+  margin-bottom: 48px;
+
+  color: var(--ethiopian-green-light);
+
+  font-family: var(--font-mono);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
 }
 
-.project-folder-icon {
-  color: var(--teal);
-
-  font-size: 2.2rem;
-}
-
-.project-card-links {
-  display: flex;
-
-  align-items: center;
-
-  gap: 14px;
-}
-
-.project-card-links a {
-  color: var(--light-slate);
-
-  font-size: 1.05rem;
-
-  transition: var(--transition);
-}
-
-.project-card-links a:hover {
-  color: var(--teal);
-
-  transform: translateY(-2px);
-}
-
-/* ================================
+/* =========================================
    TITLE
-================================ */
+========================================= */
 
 .project-card-title {
-  margin-bottom: 14px;
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 90%;
+
+  margin-bottom: 16px;
 
   color: var(--lightest-slate);
 
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  line-height: 1.35;
 
   transition: var(--transition);
 }
 
-.project-card:hover .project-card-title {
-  color: var(--teal);
+.project-card-title a {
+  color: inherit;
 }
 
-/* ================================
+.project-card:hover .project-card-title,
+.project-card-title a:hover {
+  color: var(--ethiopian-yellow);
+}
+
+/* =========================================
    DESCRIPTION
-================================ */
+========================================= */
 
 .project-card-description {
-  margin-bottom: 26px;
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 28px;
 
   color: var(--slate);
 
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.96rem;
+
+  line-height: 1.75;
 }
 
-/* ================================
-   TECHNOLOGIES
-================================ */
+/* =========================================
+   TECHNOLOGY TAGS
+========================================= */
 
 .project-card-tech {
+  position: relative;
+
+  z-index: 2;
+
   display: flex;
   flex-wrap: wrap;
 
-  gap: 8px 12px;
+  gap: 8px;
 
   margin-top: auto;
 }
 
 .project-card-tech li {
+  padding: 5px 9px;
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
+
+  border-radius: 999px;
+
+  background: rgba(8, 21, 37, 0.55);
+
   color: var(--light-slate);
 
   font-family: var(--font-mono);
-  font-size: 11px;
+
+  font-size: 10px;
+
+  transition: var(--transition);
 }
 
-/* ================================
+.project-card:hover .project-card-tech li {
+  border-color: rgba(24, 182, 75, 0.25);
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+.project-card-links {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 24px;
+}
+
+.project-card-links a {
+  display: grid;
+
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+
+  border-radius: 50%;
+
+  color: var(--light-slate);
+
+  font-size: 0.95rem;
+
+  transition: var(--transition);
+}
+
+.project-card-links a:hover {
+  border-color: var(--ethiopian-yellow);
+
+  color: var(--ethiopian-yellow);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
    TABLET
-================================ */
+========================================= */
 
 @media (max-width: 900px) {
-  .other-projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* ================================
-   MOBILE
-================================ */
-
-@media (max-width: 650px) {
   .other-projects-header {
     align-items: flex-start;
 
     flex-direction: column;
 
-    gap: 8px;
+    gap: 12px;
   }
 
+  .other-projects-subtitle {
+    max-width: 500px;
+
+    text-align: left;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
   .other-projects-grid {
     grid-template-columns: 1fr;
   }
 
   .project-card {
-    min-height: 280px;
+    min-height: 320px;
 
-    padding: 24px;
+    padding: 28px;
+  }
+
+  .project-card-number {
+    font-size: 3.2rem;
+  }
+
+  .project-card-meta {
+    margin-bottom: 40px;
   }
 }

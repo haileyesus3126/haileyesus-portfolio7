@@ -17,7 +17,7 @@ function Experience() {
       data-reveal
     >
       <h2 className="section-heading">
-        <span className="section-number">02.</span>
+        <span className="section-number">፪.</span>
         Experience
       </h2>
 

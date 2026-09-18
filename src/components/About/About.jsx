@@ -1,4 +1,5 @@
 import useScrollReveal from "../../hooks/useScrollReveal";
+import profileImage from "../../assets/images/haileyesus.png";
 import "./About.css";
 
 function About() {
@@ -23,9 +24,16 @@ function About() {
       className="section about-section"
       ref={revealRef}
       data-reveal
+      aria-labelledby="about-heading"
     >
-      <h2 className="section-heading">
-        <span className="section-number">01.</span>
+      <h2
+        id="about-heading"
+        className="section-heading"
+      >
+        <span className="section-number">
+          ፩.
+        </span>
+
         About Me
       </h2>
 
@@ -37,23 +45,15 @@ function About() {
           </p>
 
           <p>
-            My professional work started around websites, business workflows,
-            and day-to-day operational problems. Over time, I began using
-            software, automation, and system analysis to make repetitive work
-            easier and more organized.
+            My work combines web development, internal business tools, system
+            analysis, and automation. At Yosal PLC, I've worked on solutions
+            for order issue management, rental workflows, invoice processing,
+            Shopify SEO automation, and repetitive business tasks.
           </p>
 
           <p>
-            At Yosal PLC, I have worked on internal tools and automation
-            solutions including order issue management, rental workflows,
-            invoice processing, Shopify SEO automation, and other repetitive
-            business processes.
-          </p>
-
-          <p>
-            Today, I continue strengthening my software development skills by
-            building full-stack applications and practical projects using
-            modern web technologies and Python automation.
+            I'm currently focused on strengthening my full-stack development
+            skills and building practical software that solves real problems.
           </p>
 
           <p className="about-tech-label">
@@ -62,22 +62,21 @@ function About() {
 
           <ul className="about-tech-list">
             {technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
+              <li key={technology}>
+                {technology}
+              </li>
             ))}
           </ul>
         </div>
 
-        <div className="about-highlight">
-          <span className="about-highlight-label">CURRENT FOCUS</span>
-
-          <h3>
-            Building practical software that solves real business problems.
-          </h3>
-
-          <p>
-            Web development, backend development, internal tools, workflow
-            automation, and continuous learning.
-          </p>
+        <div className="about-photo-area">
+          <div className="about-photo-wrapper">
+            <img
+              src={profileImage}
+              alt="Haileyesus Mesfin"
+              className="about-photo"
+            />
+          </div>
         </div>
       </div>
     </section>

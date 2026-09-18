@@ -1,5 +1,5 @@
 import taskManagementImage from "../assets/projects/task-management.png";
-import invoiceAutomationImage from "../assets/projects/invoice-automation.png";
+import shopifySeoImage from "../assets/projects/shopify-seo.png";
 import ruthStoreImage from "../assets/projects/ruth-store.png";
 
 const featuredProjects = [
@@ -22,32 +22,36 @@ const featuredProjects = [
 
     image: taskManagementImage,
 
-    github: "",
+    github:
+      "https://github.com/haileyesus3126/task-management-app-",
 
-    live: "",
+    live:
+      "https://task-management-app-nine-coral.vercel.app/",
   },
 
   {
-    title: "Invoice Processing Automation",
+    title: "Shopify SEO Automation",
 
     featuredLabel: "Featured Project",
 
     description:
-      "A Python-based automation workflow designed to extract, clean, organize, and process invoice information while reducing repetitive manual work.",
+      "A Python-based automation workflow created to reduce repetitive Shopify SEO tasks by processing product information and helping update SEO-related content more efficiently.",
 
     technologies: [
       "Python",
-      "Excel",
-      "Data Processing",
+      "Shopify",
+      "SEO",
       "Automation",
-      "JSON",
+      "Data Processing",
     ],
 
-    image: invoiceAutomationImage,
+    image: shopifySeoImage,
 
-    github: "",
+    github:
+      "https://github.com/YOUR-USERNAME/shopify-seo-automation",
 
-    live: "",
+    live:
+      "https://www.shopify.com/",
   },
 
   {
@@ -67,9 +71,11 @@ const featuredProjects = [
 
     image: ruthStoreImage,
 
-    github: "",
+    github:
+      "https://github.com/haileyesus3126/Ruth-Store-7",
 
-    live: "",
+    live:
+      "https://ruth-store-7.vercel.app/",
   },
 ];
 
@@ -88,7 +94,6 @@ const otherProjects = [
     ],
 
     github: "",
-
     live: "",
   },
 
@@ -106,7 +111,6 @@ const otherProjects = [
     ],
 
     github: "",
-
     live: "",
   },
 
@@ -124,7 +128,24 @@ const otherProjects = [
     ],
 
     github: "",
+    live: "",
+  },
 
+  {
+    title: "Invoice Processing Automation",
+
+    description:
+      "A Python-based automation workflow designed to extract, clean, organize, and process invoice information while reducing repetitive manual work.",
+
+    technologies: [
+      "Python",
+      "Excel",
+      "Data Processing",
+      "Automation",
+      "JSON",
+    ],
+
+    github: "",
     live: "",
   },
 
@@ -141,10 +162,15 @@ const otherProjects = [
       "Vite",
     ],
 
-    github: "",
+    github:
+      "https://github.com/YOUR-USERNAME/haileyesus-portfolio",
 
-    live: "",
+    live:
+      "https://YOUR-PORTFOLIO-URL.com",
   },
 ];
 
-export { featuredProjects, otherProjects };
+export {
+  featuredProjects,
+  otherProjects,
+};
