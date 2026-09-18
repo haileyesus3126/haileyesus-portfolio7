@@ -3,13 +3,20 @@ import "./Layout.css";
 function Layout({ sidebar, children }) {
   return (
     <div className="portfolio-layout">
-      <aside className="portfolio-sidebar">
+      <aside
+        className="portfolio-sidebar"
+        aria-label="Portfolio introduction"
+      >
         <div className="portfolio-sidebar-inner">
           {sidebar}
         </div>
       </aside>
 
-      <main className="portfolio-content">
+      <main
+        id="main-content"
+        className="portfolio-content"
+        tabIndex="-1"
+      >
         {children}
       </main>
     </div>

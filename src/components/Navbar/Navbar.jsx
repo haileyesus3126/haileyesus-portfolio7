@@ -5,17 +5,31 @@ import useActiveSection from "../../hooks/useActiveSection";
 import "./Navbar.css";
 
 function Navbar() {
-  const [showNavbar, setShowNavbar] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const menuRef = useRef(null);
 
   const navigation = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
+    {
+      id: "home",
+      label: "Home",
+    },
+    {
+      id: "about",
+      label: "About",
+    },
+    {
+      id: "experience",
+      label: "Experience",
+    },
+    {
+      id: "projects",
+      label: "Projects",
+    },
+    {
+      id: "contact",
+      label: "Contact",
+    },
   ];
 
   const activeSection = useActiveSection([
@@ -25,23 +39,7 @@ function Navbar() {
     "contact",
   ]);
 
-  /* Show navbar after scrolling */
-
-  useEffect(() => {
-    function handleScroll() {
-      setShowNavbar(window.scrollY > 250);
-    }
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  /* Lock page when mobile menu is open */
+  /* Lock page scrolling while mobile menu is open */
 
   useEffect(() => {
     if (menuOpen) {
@@ -55,7 +53,7 @@ function Navbar() {
     };
   }, [menuOpen]);
 
-  /* Close with Escape */
+  /* Close mobile menu with Escape */
 
   useEffect(() => {
     function handleEscape(event) {
@@ -77,45 +75,47 @@ function Navbar() {
 
   return (
     <>
-      <header
-        className={`navbar ${showNavbar ? "visible" : ""}`}
-      >
+      <header className="navbar">
         <div className="navbar-container">
           <a
             href="#home"
             className="navbar-logo"
             onClick={closeMenu}
-            aria-label="Go to homepage"
+            aria-label="Go to the top of Haileyesus Mesfin portfolio"
           >
             HM
           </a>
 
           <nav
+            id="main-navigation"
             ref={menuRef}
             className={`navbar-menu ${menuOpen ? "open" : ""}`}
             aria-label="Main navigation"
           >
-            {navigation.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={closeMenu}
-                className={
-                  item.id !== "home" &&
-                  activeSection === item.id
-                    ? "active"
-                    : ""
-                }
-              >
-                {item.label}
-              </a>
-            ))}
+            {navigation.map((item) => {
+              const isActive =
+                item.id !== "home" &&
+                activeSection === item.id;
+
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={closeMenu}
+                  className={isActive ? "active" : ""}
+                  aria-current={isActive ? "location" : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
 
             <a
               href="/Haileyesus_Mesfin_CV.pdf"
               className="navbar-resume"
               download
               onClick={closeMenu}
+              aria-label="Download Haileyesus Mesfin resume as PDF"
             >
               Resume
             </a>
@@ -124,25 +124,26 @@ function Navbar() {
           <button
             className="navbar-toggle"
             type="button"
-            onClick={() =>
-              setMenuOpen((current) => !current)
-            }
+            onClick={() => setMenuOpen((current) => !current)}
             aria-label={
               menuOpen
                 ? "Close navigation menu"
                 : "Open navigation menu"
             }
             aria-expanded={menuOpen}
+            aria-controls="main-navigation"
           >
-            {menuOpen ? <FaTimes /> : <FaBars />}
+            {menuOpen ? (
+              <FaTimes aria-hidden="true" />
+            ) : (
+              <FaBars aria-hidden="true" />
+            )}
           </button>
         </div>
       </header>
 
       <div
-        className={`navbar-overlay ${
-          menuOpen ? "visible" : ""
-        }`}
+        className={`navbar-overlay ${menuOpen ? "visible" : ""}`}
         onClick={closeMenu}
         aria-hidden="true"
       ></div>

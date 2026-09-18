@@ -16,9 +16,13 @@ function OtherProjects() {
       className="section other-projects"
       ref={revealRef}
       data-reveal
+      aria-labelledby="other-projects-heading"
     >
       <div className="other-projects-header">
-        <h2 className="other-projects-title">
+        <h2
+          id="other-projects-heading"
+          className="other-projects-title"
+        >
           Other Noteworthy Projects
         </h2>
 
@@ -34,31 +38,41 @@ function OtherProjects() {
             key={project.title}
           >
             <div className="project-card-top">
-              <FaFolder className="project-folder-icon" />
+              <FaFolder
+                className="project-folder-icon"
+                aria-hidden="true"
+              />
 
-              <div className="project-card-links">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${project.title} GitHub repository`}
-                  >
-                    <FaGithub />
-                  </a>
-                )}
+              {(project.github ||
+                project.live) && (
+                  <div className="project-card-links">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${project.title} GitHub repository`}
+                      >
+                        <FaGithub
+                          aria-hidden="true"
+                        />
+                      </a>
+                    )}
 
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${project.title} live project`}
-                  >
-                    <FaExternalLinkAlt />
-                  </a>
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${project.title} live project`}
+                      >
+                        <FaExternalLinkAlt
+                          aria-hidden="true"
+                        />
+                      </a>
+                    )}
+                  </div>
                 )}
-              </div>
             </div>
 
             <h3 className="project-card-title">
@@ -69,12 +83,17 @@ function OtherProjects() {
               {project.description}
             </p>
 
-            <ul className="project-card-tech">
-              {project.technologies.map((technology) => (
-                <li key={technology}>
-                  {technology}
-                </li>
-              ))}
+            <ul
+              className="project-card-tech"
+              aria-label={`${project.title} technologies`}
+            >
+              {project.technologies.map(
+                (technology) => (
+                  <li key={technology}>
+                    {technology}
+                  </li>
+                )
+              )}
             </ul>
           </article>
         ))}

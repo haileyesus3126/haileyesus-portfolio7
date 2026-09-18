@@ -54,42 +54,53 @@ function Hero() {
 
       <nav
         className="sidebar-nav"
-        aria-label="Section navigation"
+        aria-label="Portfolio section navigation"
       >
-        {navigation.map((item) => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            className={
-              activeSection === item.id ? "active" : ""
-            }
-          >
-            <span className="nav-line"></span>
+        {navigation.map((item) => {
+          const isActive = activeSection === item.id;
 
-            <span className="nav-text">
-              {item.label}
-            </span>
-          </a>
-        ))}
+          return (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={isActive ? "active" : ""}
+              aria-current={
+                isActive ? "location" : undefined
+              }
+            >
+              <span
+                className="nav-line"
+                aria-hidden="true"
+              ></span>
+
+              <span className="nav-text">
+                {item.label}
+              </span>
+            </a>
+          );
+        })}
       </nav>
 
-      <div className="sidebar-socials">
+      <div
+        className="sidebar-socials"
+        aria-label="Social links"
+      >
         <a
           href="https://github.com/"
           target="_blank"
           rel="noreferrer"
-          aria-label="Visit my GitHub profile"
+          aria-label="Open Haileyesus Mesfin GitHub profile"
         >
-          <FaGithub />
+          <FaGithub aria-hidden="true" />
         </a>
 
         <a
           href="https://linkedin.com/"
           target="_blank"
           rel="noreferrer"
-          aria-label="Visit my LinkedIn profile"
+          aria-label="Open Haileyesus Mesfin LinkedIn profile"
         >
-          <FaLinkedinIn />
+          <FaLinkedinIn aria-hidden="true" />
         </a>
       </div>
     </div>

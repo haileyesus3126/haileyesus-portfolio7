@@ -14,28 +14,14 @@
 
   padding: 10px 40px;
 
-  background: rgba(10, 25, 47, 0.92);
+  background: rgba(10, 25, 47, 0.94);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
   border-bottom: 1px solid rgba(136, 146, 176, 0.08);
 
-  box-shadow: 0 8px 24px rgba(2, 12, 27, 0.22);
-
-  transform: translateY(-100%);
-
-  opacity: 0;
-
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-}
-
-.navbar.visible {
-  transform: translateY(0);
-
-  opacity: 1;
+  box-shadow: 0 8px 24px rgba(2, 12, 27, 0.2);
 }
 
 .navbar-container {
@@ -58,8 +44,9 @@
   height: 38px;
 
   display: grid;
-
   place-items: center;
+
+  flex-shrink: 0;
 
   border: 1px solid var(--teal);
 
@@ -127,7 +114,7 @@
 }
 
 /* =========================================
-   RESUME
+   RESUME BUTTON
 ========================================= */
 
 .navbar-resume {
@@ -169,7 +156,7 @@
 }
 
 /* =========================================
-   OVERLAY
+   MOBILE OVERLAY
 ========================================= */
 
 .navbar-overlay {
@@ -182,6 +169,7 @@
   background: rgba(2, 12, 27, 0.72);
 
   backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 
   opacity: 0;
 
@@ -197,6 +185,8 @@
 
   visibility: visible;
 }
+
+/* Stop body scrolling while mobile menu is open */
 
 body.menu-open {
   overflow: hidden;
