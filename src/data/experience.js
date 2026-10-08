@@ -5,18 +5,25 @@ const experience = [
     period: "june 2024 - Present",
     location: "Addis Ababa, Ethiopia",
     bullets: [
-      "Maintain and improve company website-related content and workflows.",
-      "Analyze business processes and identify opportunities for software and automation improvements.",
-      "Built an internal Order Issue Management System to help organize and track order-related issues.",
-      "Built a Rental Management System to manage rental information and workflows.",
-      "Used Replit and AI-assisted development tools to prototype internal web solutions.",
-      "Developed Python automation for repetitive business processes.",
-      "Built invoice parsing automation to extract, process, and organize invoice information.",
-      "Automated repetitive Shopify SEO-related tasks.",
-      "Tested, debugged, and improved internal applications and automation workflows.",
-      "Worked with spreadsheets, structured data, JSON, APIs, and business requirements.",
-    ],
-  },
+       "Work with business data, spreadsheets, and daily operational workflows to support accurate information processing.",
+
+      "Maintain and improve website-related content and business workflows.",
+
+      "Analyze repetitive business tasks and identify opportunities for automation and process improvement.",
+
+      "Developed an internal Order Issue Management System using Replit and AI-assisted development tools to organize and track order-related issues.",
+
+      "Developed a Rental Management System to organize rental information and support day-to-day business workflows.",
+
+      "Worked on invoice processing automation to extract, clean, and organize invoice data.",
+
+      "Automated repetitive Shopify SEO-related tasks using Python and browser automation tools.",
+
+      "Tested and improved internal applications and automation workflows, including troubleshooting errors and checking results.",
+
+      "Worked with structured data, spreadsheets, JSON, and web-based tools to support business requirements."
+    ]
+  }
 ];
 
 export default experience;

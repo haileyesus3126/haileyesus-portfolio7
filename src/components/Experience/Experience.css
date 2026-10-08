@@ -205,3 +205,58 @@
     font-size: 0.98rem;
   }
 }
+
+/* Experience Show More button */
+
+.experience-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 18px;
+  padding: 10px 18px;
+
+  border: 1px solid #64ffda;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #64ffda;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.experience-read-more:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+}
+
+.experience-read-more:focus-visible {
+  outline: 2px solid #64ffda;
+  outline-offset: 4px;
+}
+
+.experience-read-more-icon {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.experience-read-more-icon.expanded {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-read-more,
+  .experience-read-more-icon {
+    transition: none;
+  }
+}
