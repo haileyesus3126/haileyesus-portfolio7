@@ -15,9 +15,11 @@ function About() {
     "Node.js",
     "Express.js",
     "MongoDB",
+    "PostgreSQL",
     "MySQL",
     "Python",
-    "Git",
+    "Selenium",
+    "Git & GitHub",
     "REST APIs",
   ];
 
@@ -39,20 +41,23 @@ function About() {
 
       <div className="about-content">
         <div className="about-text">
+
           {/* Always visible introduction */}
           <p>
-            Hi, I'm Haileyesus, a self-taught Software
-            Developer and Website Developer based in
-            Addis Ababa, Ethiopia. I have a Bachelor's
-            Degree in Information and Communication
-            Technology.
+            Hi, I'm Haileyesus, a Web Developer based
+            in Addis Ababa, Ethiopia. I hold a
+            Bachelor's Degree in Information and
+            Communication Technology from the
+            University of Gondar.
           </p>
 
           <p>
-            My work combines data operations, web
-            development, internal business systems,
-            and automation. I enjoy building practical
-            software that solves real problems.
+            My experience combines web development,
+            business data operations, internal
+            applications, and workflow automation.
+            I enjoy creating practical digital
+            solutions that improve everyday
+            business processes.
           </p>
 
           {/* Expandable content */}
@@ -62,35 +67,57 @@ function About() {
             hidden={!showMore}
           >
             <p>
-              At Yosal PLC, I've worked with business
-              data, website-related tasks, and system
-              analysis. I've also worked on an Order
-              Issue Management System and a Rental
-              Management System using Replit and
+              At Yosal PLC, my work focuses on
+              business data processing, operational
+              workflows, website-related tasks,
+              and identifying opportunities for
+              process improvement.
+            </p>
+
+            <p>
+              I have worked on internal business
+              applications, including an Order Issue
+              Management System for tracking
+              order-related problems and a Rental
+              Management System for organizing
+              rental information and daily
+              business operations. These projects
+              were developed using Replit and
               AI-assisted development tools.
             </p>
 
             <p>
-              I've developed automation solutions for
-              invoice processing and Shopify SEO tasks
-              to reduce repetitive manual work and
-              improve business workflows.
+              My web development projects include
+              a full-stack Task Management System
+              built with React.js, Node.js,
+              Express.js, and MongoDB, as well
+              as Ruth Store, a responsive
+              e-commerce web application.
             </p>
 
             <p>
-              My personal projects include a Task
-              Management System built with React.js,
-              Node.js, Express.js, and MongoDB, and
-              Ruth Store, an e-commerce web application.
-              I use AI-assisted development tools
-              while continuing to improve my independent
-              programming and debugging skills.
+              I have also worked with Python
+              automation, including a YouTube
+              Video Automation workflow for
+              processing long-form videos into
+              short-form content and adding
+              captions.
             </p>
 
             <p>
-              My goal is to become a stronger full-stack
-              developer and build reliable software
-              that makes people's work easier.
+              I use modern development tools,
+              including AI-assisted coding,
+              while continuously improving my
+              programming, testing, debugging,
+              and problem-solving skills.
+            </p>
+
+            <p>
+              My goal is to grow as a professional
+              Web Developer, strengthen my
+              full-stack development skills,
+              and build reliable applications
+              that solve real business problems.
             </p>
           </div>
 
@@ -105,6 +132,7 @@ function About() {
             <span>
               {showMore ? "Show Less" : "Read More"}
             </span>
+
             <span
               className={`about-read-more-icon ${
                 showMore ? "expanded" : ""
@@ -122,7 +150,9 @@ function About() {
 
           <ul className="about-tech-list">
             {technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
+              <li key={technology}>
+                {technology}
+              </li>
             ))}
           </ul>
         </div>
@@ -139,6 +169,7 @@ function About() {
             />
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -258,3 +258,96 @@ body.menu-open {
     padding: 10px 18px;
   }
 }
+
+
+/* ========================================
+   PROFESSIONAL SCROLLING NAVBAR
+======================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  transition:
+    top 0.35s ease,
+    left 0.35s ease,
+    right 0.35s ease,
+    border-radius 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* Floating appearance after scrolling */
+.navbar.navbar-scrolled {
+  top: 14px;
+  left: 3%;
+  right: 3%;
+
+  border: 1px solid rgba(100, 255, 218, 0.12);
+  border-radius: 18px;
+
+  background: rgba(10, 25, 47, 0.94);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(100, 255, 218, 0.03);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Hide navbar while scrolling down */
+.navbar.navbar-hidden {
+  transform: translateY(calc(-100% - 24px));
+}
+
+/* Link numbering */
+.navbar-link-number {
+  color: #64ffda;
+  font-size: 0.8em;
+  margin-right: 6px;
+}
+
+/* Active link */
+.navbar-menu a.active {
+  color: #64ffda;
+}
+
+/* Hover interactions */
+.navbar-menu a:not(.navbar-resume) {
+  transition: color 0.25s ease;
+}
+
+.navbar-menu a:not(.navbar-resume):hover {
+  color: #64ffda;
+}
+
+/* Prevent hiding while mobile menu is open */
+.navbar.navbar-menu-active {
+  transform: translateY(0);
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .navbar.navbar-scrolled {
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    border-radius: 14px;
+  }
+
+  .navbar.navbar-hidden {
+    transform: translateY(calc(-100% - 20px));
+  }
+}
+
+/* Accessibility: reduce animation */
+@media (prefers-reduced-motion: reduce) {
+  .navbar {
+    transition: none;
+  }
+}

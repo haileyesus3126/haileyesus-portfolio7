@@ -1,36 +1,24 @@
+
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import useActiveSection from "../../hooks/useActiveSection";
 import "./Navbar.css";
 
+const navigation = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
-  const menuRef = useRef(null);
-
-  const navigation = [
-    {
-      id: "home",
-      label: "Home",
-    },
-    {
-      id: "about",
-      label: "About",
-    },
-    {
-      id: "experience",
-      label: "Experience",
-    },
-    {
-      id: "projects",
-      label: "Projects",
-    },
-    {
-      id: "contact",
-      label: "Contact",
-    },
-  ];
+  const lastScrollY = useRef(0);
 
   const activeSection = useActiveSection([
     "about",
@@ -39,22 +27,55 @@ function Navbar() {
     "contact",
   ]);
 
-  /* Lock page scrolling while mobile menu is open */
-
+  // Change navbar appearance based on scroll position
   useEffect(() => {
-    if (menuOpen) {
-      document.body.classList.add("menu-open");
-    } else {
-      document.body.classList.remove("menu-open");
+    let ticking = false;
+
+    function updateNavbar() {
+      const currentY = Math.max(window.scrollY, 0);
+      const previousY = lastScrollY.current;
+
+      setScrolled(currentY > 60);
+
+      // Hide when scrolling down, show when scrolling up
+      if (currentY < 120) {
+        setHidden(false);
+      } else if (Math.abs(currentY - previousY) > 5) {
+        setHidden(currentY > previousY);
+      }
+
+      lastScrollY.current = currentY;
+      ticking = false;
     }
+
+    function handleScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    }
+
+    updateNavbar();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Lock page scrolling while mobile menu is open
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", menuOpen);
 
     return () => {
       document.body.classList.remove("menu-open");
     };
   }, [menuOpen]);
 
-  /* Close mobile menu with Escape */
-
+  // Close menu using Escape
   useEffect(() => {
     function handleEscape(event) {
       if (event.key === "Escape") {
@@ -71,28 +92,39 @@ function Navbar() {
 
   function closeMenu() {
     setMenuOpen(false);
+    setHidden(false);
   }
 
   return (
     <>
-      <header className="navbar">
+      <header
+        className={[
+          "navbar",
+          scrolled ? "navbar-scrolled" : "",
+          hidden && !menuOpen ? "navbar-hidden" : "",
+          menuOpen ? "navbar-menu-active" : "",
+        ]
+          .filter(Boolean)
+          .join(" ")}
+      >
         <div className="navbar-container">
           <a
             href="#home"
             className="navbar-logo"
             onClick={closeMenu}
-            aria-label="Go to the top of Haileyesus Mesfin portfolio"
+            aria-label="Go to top of portfolio"
           >
             HM
           </a>
 
           <nav
             id="main-navigation"
-            ref={menuRef}
-            className={`navbar-menu ${menuOpen ? "open" : ""}`}
+            className={`navbar-menu ${
+              menuOpen ? "open" : ""
+            }`}
             aria-label="Main navigation"
           >
-            {navigation.map((item) => {
+            {navigation.map((item, index) => {
               const isActive =
                 item.id !== "home" &&
                 activeSection === item.id;
@@ -103,8 +135,14 @@ function Navbar() {
                   href={`#${item.id}`}
                   onClick={closeMenu}
                   className={isActive ? "active" : ""}
-                  aria-current={isActive ? "location" : undefined}
+                  aria-current={
+                    isActive ? "location" : undefined
+                  }
                 >
+                  <span className="navbar-link-number">
+                    {["፩", "፪", "፫", "፬", "፭"][index]}.
+                  </span>
+
                   {item.label}
                 </a>
               );
@@ -115,7 +153,7 @@ function Navbar() {
               className="navbar-resume"
               download
               onClick={closeMenu}
-              aria-label="Download Haileyesus Mesfin resume as PDF"
+              aria-label="Download resume as PDF"
             >
               Resume
             </a>
@@ -143,10 +181,12 @@ function Navbar() {
       </header>
 
       <div
-        className={`navbar-overlay ${menuOpen ? "visible" : ""}`}
+        className={`navbar-overlay ${
+          menuOpen ? "visible" : ""
+        }`}
         onClick={closeMenu}
         aria-hidden="true"
-      ></div>
+      />
     </>
   );
 }

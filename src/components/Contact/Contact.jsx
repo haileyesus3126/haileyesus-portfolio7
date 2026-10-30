@@ -1,3 +1,4 @@
+
 import {
   FaEnvelope,
   FaArrowUpRightFromSquare,
@@ -17,6 +18,7 @@ function Contact() {
       data-reveal
       aria-labelledby="contact-heading"
     >
+      {/* Background effects */}
       <div
         className="contact-glow contact-glow-left"
         aria-hidden="true"
@@ -29,39 +31,49 @@ function Contact() {
 
       <div className="contact-content">
         <p className="contact-number">
-          ፬. What&apos;s Next?
+           ፭. What's Next?
         </p>
 
         <h2
           id="contact-heading"
           className="contact-title"
         >
-          Let&apos;s Build Something
+          Let's Build Something
           <span> Meaningful.</span>
         </h2>
 
         <p className="contact-description">
-          I&apos;m open to opportunities in software development,
-          website development, backend development, and automation.
-          If you have a role, project, collaboration, or simply want
-          to connect, I&apos;d be happy to hear from you.
+          I'm a Web Developer with experience in
+          business applications, data operations,
+          and workflow automation.
+
+          I'm open to opportunities in web development,
+          application support, IT operations, and
+          collaborative technology projects.
+
+          If you're looking for someone who enjoys
+          solving problems, learning new technologies,
+          and building practical digital solutions,
+          I'd be happy to connect.
         </p>
 
+        {/* Email address */}
         <a
-          href="mailto:Haileyesus2024@gmail.com"
+          href="mailto:haileyesus2024@gmail.com"
           className="contact-email"
           aria-label="Send an email to Haileyesus Mesfin"
         >
           <FaEnvelope aria-hidden="true" />
 
           <span>
-            Haileyesus2024@gmail.com
+            haileyesus2024@gmail.com
           </span>
         </a>
 
+        {/* Action buttons */}
         <div className="contact-actions">
           <a
-            href="mailto:Haileyesus2024@gmail.com"
+            href="mailto:haileyesus2024@gmail.com"
             className="contact-button contact-button-primary"
           >
             Say Hello
@@ -80,6 +92,7 @@ function Contact() {
           </a>
         </div>
 
+        {/* Decorative Ethiopian line */}
         <div
           className="contact-ethiopian-line"
           aria-hidden="true"

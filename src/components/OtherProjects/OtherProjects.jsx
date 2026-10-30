@@ -41,11 +41,12 @@ function OtherProjects() {
           </p>
 
           <h2
-            id="other-projects-heading"
-            className="other-projects-title"
-          >
-            Other Noteworthy Projects
-          </h2>
+  id="other-projects-heading"
+  className="section-heading other-projects-title"
+>
+  <span className="section-number">፬.</span>
+  Other Noteworthy Projects
+</h2>
         </div>
 
         <p className="other-projects-subtitle">

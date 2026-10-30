@@ -1,6 +1,8 @@
+
 import {
   FaGithub,
   FaExternalLinkAlt,
+  FaCode,
 } from "react-icons/fa";
 
 import { featuredProjects } from "../../data/projects";
@@ -26,13 +28,34 @@ function FeaturedProjects() {
         <span className="section-number">
           ፫.
         </span>
-
-        Some Things I've Built
+        Selected Projects
       </h2>
 
       <div className="featured-projects-list">
         {featuredProjects.map((project, index) => {
           const isReversed = index % 2 !== 0;
+          const hasImage = Boolean(project.image);
+          const hasLive = Boolean(project.live);
+          const hasGithub = Boolean(project.github);
+
+          const projectVisual = hasImage ? (
+            <img
+              src={project.image}
+              alt={`${project.title} project interface`}
+              className="featured-project-image"
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <div
+              className="featured-project-placeholder"
+              role="img"
+              aria-label={`${project.title} project preview unavailable`}
+            >
+              <FaCode aria-hidden="true" />
+              <span>{project.title}</span>
+            </div>
+          );
 
           return (
             <article
@@ -41,64 +64,45 @@ function FeaturedProjects() {
               }`}
               key={project.title}
             >
-              {/* =====================================
-                  PROJECT IMAGE
-              ====================================== */}
-
-              {project.live ? (
+              {/* Project image */}
+              {hasLive ? (
                 <a
                   href={project.live}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="featured-project-image-wrapper"
                   aria-label={`Open ${project.title} live project`}
                 >
-                  <img
-                    src={project.image}
-                    alt={`${project.title} project interface`}
-                    className="featured-project-image"
-                    loading="lazy"
-                  />
+                  {projectVisual}
 
                   <div
                     className="featured-project-image-overlay"
                     aria-hidden="true"
-                  ></div>
+                  />
                 </a>
               ) : (
                 <div className="featured-project-image-wrapper">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} project interface`}
-                    className="featured-project-image"
-                    loading="lazy"
-                  />
+                  {projectVisual}
 
                   <div
                     className="featured-project-image-overlay"
                     aria-hidden="true"
-                  ></div>
+                  />
                 </div>
               )}
 
-              {/* =====================================
-                  PROJECT CONTENT
-              ====================================== */}
-
+              {/* Project information */}
               <div className="featured-project-content">
                 <p className="featured-project-label">
-                  {project.featuredLabel}
+                  {project.featuredLabel || "Featured Project"}
                 </p>
 
-                {/* PROJECT TITLE */}
-
                 <h3 className="featured-project-title">
-                  {project.live ? (
+                  {hasLive ? (
                     <a
                       href={project.live}
                       target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${project.title} live project`}
+                      rel="noopener noreferrer"
                     >
                       {project.title}
                     </a>
@@ -107,56 +111,46 @@ function FeaturedProjects() {
                   )}
                 </h3>
 
-                {/* PROJECT DESCRIPTION */}
-
                 <div className="featured-project-description">
-                  <p>
-                    {project.description}
-                  </p>
+                  <p>{project.description}</p>
                 </div>
 
-                {/* TECHNOLOGIES */}
-
+                {/* Technologies */}
                 <ul
                   className="featured-project-tech"
                   aria-label={`${project.title} technologies`}
                 >
-                  {project.technologies.map(
-                    (technology) => (
-                      <li key={technology}>
-                        {technology}
-                      </li>
-                    )
-                  )}
+                  {project.technologies.map((technology) => (
+                    <li key={technology}>
+                      {technology}
+                    </li>
+                  ))}
                 </ul>
 
-                {/* LINKS */}
-
-                {(project.github || project.live) && (
+                {/* Project links */}
+                {(hasGithub || hasLive) && (
                   <div className="featured-project-links">
-                    {project.github && (
+                    {hasGithub && (
                       <a
                         href={project.github}
                         target="_blank"
-                        rel="noreferrer"
-                        aria-label={`Open ${project.title} GitHub repository`}
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} source code`}
                         title="View source code"
                       >
                         <FaGithub aria-hidden="true" />
                       </a>
                     )}
 
-                    {project.live && (
+                    {hasLive && (
                       <a
                         href={project.live}
                         target="_blank"
-                        rel="noreferrer"
-                        aria-label={`Open ${project.title} live project`}
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} live`}
                         title="View live project"
                       >
-                        <FaExternalLinkAlt
-                          aria-hidden="true"
-                        />
+                        <FaExternalLinkAlt aria-hidden="true" />
                       </a>
                     )}
                   </div>

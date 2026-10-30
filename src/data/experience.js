@@ -1,27 +1,26 @@
+
 const experience = [
   {
     company: "Yosal PLC",
-    role: "Website Developer",
-    period: "june 2024 - Present",
+    role: "Data Operations & Web Support",
+    period: "June 2024 - Present",
     location: "Addis Ababa, Ethiopia",
     bullets: [
-       "Work with business data, spreadsheets, and daily operational workflows to support accurate information processing.",
+      "Manage, process, and validate business data using spreadsheets and web-based systems to support daily operations.",
 
-      "Maintain and improve website-related content and business workflows.",
+      "Support website-related activities, digital content management, and business workflows.",
 
-      "Analyze repetitive business tasks and identify opportunities for automation and process improvement.",
+      "Analyze existing business processes, identify operational challenges, and recommend practical improvements.",
 
-      "Developed an internal Order Issue Management System using Replit and AI-assisted development tools to organize and track order-related issues.",
+      "Contributed to the development of an internal Order Issue Management System using Replit and AI-assisted development tools to record, organize, and track order-related issues.",
 
-      "Developed a Rental Management System to organize rental information and support day-to-day business workflows.",
+      "Contributed to the development of a Rental Management System to manage rental information and improve daily business workflows.",
 
-      "Worked on invoice processing automation to extract, clean, and organize invoice data.",
+      "Test and troubleshoot internal web applications, identify errors, and verify that features work as expected.",
 
-      "Automated repetitive Shopify SEO-related tasks using Python and browser automation tools.",
+      "Work with structured data, spreadsheets, JSON, and web-based tools to organize and maintain business information.",
 
-      "Tested and improved internal applications and automation workflows, including troubleshooting errors and checking results.",
-
-      "Worked with structured data, spreadsheets, JSON, and web-based tools to support business requirements."
+      "Apply problem-solving, system analysis, and technical skills to improve workflow efficiency and support business operations."
     ]
   }
 ];

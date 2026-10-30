@@ -1,5 +1,7 @@
 import taskManagementImage from "../assets/projects/task-management.png";
-import shopifySeoImage from "../assets/projects/shopify-seo.png";
+import orderIssuesImage from "../assets/projects/order-issues.png";
+import rentalManagementImage from "../assets/projects/rental-management.png";
+import inventoryManagementImage from "../assets/projects/inventory-management.png";
 import ruthStoreImage from "../assets/projects/ruth-store.png";
 
 const featuredProjects = [
@@ -9,7 +11,7 @@ const featuredProjects = [
     featuredLabel: "Featured Project",
 
     description:
-      "A full-stack task management application with authentication, user-specific tasks, CRUD operations, filtering, validation, and REST API integration.",
+      "A full-stack task management application featuring secure user authentication, role-based access control, task creation and tracking, approval workflows, notifications, and REST API integration.",
 
     technologies: [
       "React.js",
@@ -28,30 +30,74 @@ const featuredProjects = [
     live:
       "https://task-management-app-nine-coral.vercel.app/",
   },
+  
+
+
+
+{
+  title: "Inventory Management System",
+
+  featuredLabel: "Team Project",
+
+  description:
+    "Collaborated with a development team on a Next.js-based inventory management application designed to organize product records, track stock levels, monitor inventory movements, and support business reporting.",
+
+  technologies: [
+    "Next.js",
+    "React.js",
+    "Inventory Management",
+    "Team Collaboration",
+  ],
+
+  image: inventoryManagementImage,
+
+  github: "",
+
+  live:
+    "https://inventory-management.swingsignalpro.com/",
+},
+
 
   {
-    title: "Shopify SEO Automation",
+    title: "Order Issue Management System",
 
     featuredLabel: "Featured Project",
 
     description:
-      "A Python-based automation workflow created to reduce repetitive Shopify SEO tasks by processing product information and helping update SEO-related content more efficiently.",
+      "An internal business application developed with AI-assisted tools to manage missing and damaged product reports, track issue statuses, organize vendor communication, and monitor credit resolution workflows.",
 
     technologies: [
-      "Python",
-      "Shopify",
-      "SEO",
-      "Automation",
-      "Data Processing",
+      "Web Development",
+      "Database",
+      "Workflow Management",
+      "Replit",
     ],
 
-    image: shopifySeoImage,
+    image: orderIssuesImage,
 
-    github:
-      "https://github.com/YOUR-USERNAME/shopify-seo-automation",
+    github: "",
+    live: "",
+  },
 
-    live:
-      "https://www.shopify.com/",
+  {
+    title: "Rental Management System",
+
+    featuredLabel: "Featured Project",
+
+    description:
+      "An internal web application developed with AI-assisted tools to organize store and landlord information, manage rental records, track payments, and support reporting and daily rental operations.",
+
+    technologies: [
+      "Web Development",
+      "Database",
+      "Business Applications",
+      "Replit",
+    ],
+
+    image: rentalManagementImage,
+
+    github: "",
+    live: "",
   },
 
   {
@@ -60,7 +106,7 @@ const featuredProjects = [
     featuredLabel: "Featured Project",
 
     description:
-      "A responsive store application designed to present products clearly and provide a simple, user-friendly shopping experience.",
+      "A responsive e-commerce web application designed to display products, support product browsing, and provide a simple and user-friendly shopping experience.",
 
     technologies: [
       "React.js",
@@ -81,44 +127,10 @@ const featuredProjects = [
 
 const otherProjects = [
   {
-    title: "Order Issue Management System",
-
-    description:
-      "An internal web application for recording, organizing, and tracking order-related issues and business workflows.",
-
-    technologies: [
-      "System Analysis",
-      "Web Development",
-      "CRUD",
-      "Database Concepts",
-    ],
-
-    github: "",
-    live: "",
-  },
-
-  {
-    title: "Rental Management System",
-
-    description:
-      "A web-based system for managing rental information and supporting day-to-day rental workflows.",
-
-    technologies: [
-      "Web Development",
-      "System Analysis",
-      "CRUD",
-      "Database Concepts",
-    ],
-
-    github: "",
-    live: "",
-  },
-
-  {
     title: "YouTube Video Automation",
 
     description:
-      "An automated workflow that processes long-form videos into short-form content, reformats clips, and adds captions.",
+      "A Python-based automation workflow designed to process long-form videos into short-form clips, adjust video formats, and generate captions to simplify content preparation.",
 
     technologies: [
       "Python",
@@ -132,28 +144,10 @@ const otherProjects = [
   },
 
   {
-    title: "Invoice Processing Automation",
-
-    description:
-      "A Python-based automation workflow designed to extract, clean, organize, and process invoice information while reducing repetitive manual work.",
-
-    technologies: [
-      "Python",
-      "Excel",
-      "Data Processing",
-      "Automation",
-      "JSON",
-    ],
-
-    github: "",
-    live: "",
-  },
-
-  {
     title: "Personal Portfolio",
 
     description:
-      "A responsive developer portfolio built to showcase my skills, experience, projects, and software development journey.",
+      "A responsive personal portfolio developed using React and Vite to showcase my web development projects, technical skills, education, and professional experience.",
 
     technologies: [
       "React.js",
@@ -162,11 +156,9 @@ const otherProjects = [
       "Vite",
     ],
 
-    github:
-      "https://github.com/YOUR-USERNAME/haileyesus-portfolio",
-
+    github: "",
     live:
-      "https://YOUR-PORTFOLIO-URL.com",
+      "https://haileyesus-portfolio7.vercel.app/",
   },
 ];
 
