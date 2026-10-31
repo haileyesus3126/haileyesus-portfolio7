@@ -1,14 +1,12 @@
+
 import { FaGithub } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 import { otherProjects } from "../../data/projects";
-import useScrollReveal from "../../hooks/useScrollReveal";
 
 import "./OtherProjects.css";
 
 function OtherProjects() {
-  const revealRef = useScrollReveal();
-
   // Ge'ez / Ethiopic project numbers
   const geezNumbers = [
     "፩",
@@ -26,13 +24,9 @@ function OtherProjects() {
   return (
     <section
       className="section other-projects"
-      ref={revealRef}
-      data-reveal
       aria-labelledby="other-projects-heading"
     >
-      {/* =========================================
-          SECTION HEADER
-      ========================================== */}
+      {/* SECTION HEADER */}
 
       <div className="other-projects-header">
         <div>
@@ -41,22 +35,23 @@ function OtherProjects() {
           </p>
 
           <h2
-  id="other-projects-heading"
-  className="section-heading other-projects-title"
->
-  <span className="section-number">፬.</span>
-  Other Noteworthy Projects
-</h2>
-        </div>
+            id="other-projects-heading"
+            className="section-heading other-projects-title"
+          >
+            <span className="section-number">
+              ፬.
+            </span>
 
-        <p className="other-projects-subtitle">
-          Practical systems, automation, and experiments.
-        </p>
+            <span className="other-projects-heading-text">
+              Other Noteworthy
+              <br />
+              Projects
+            </span>
+          </h2>
+        </div>
       </div>
 
-      {/* =========================================
-          PROJECT GRID
-      ========================================== */}
+      {/* PROJECT GRID */}
 
       <div className="other-projects-grid">
         {otherProjects.map((project, index) => {
@@ -97,9 +92,7 @@ function OtherProjects() {
                 )}
               </div>
 
-              {/* =========================================
-                  PROJECT TITLE
-              ========================================== */}
+              {/* PROJECT TITLE */}
 
               <h3 className="project-card-title">
                 {hasLiveLink ? (
@@ -116,17 +109,13 @@ function OtherProjects() {
                 )}
               </h3>
 
-              {/* =========================================
-                  DESCRIPTION
-              ========================================== */}
+              {/* DESCRIPTION */}
 
               <p className="project-card-description">
                 {project.description}
               </p>
 
-              {/* =========================================
-                  TECHNOLOGIES
-              ========================================== */}
+              {/* TECHNOLOGIES */}
 
               <ul
                 className="project-card-tech"
@@ -139,14 +128,10 @@ function OtherProjects() {
                 ))}
               </ul>
 
-              {/* =========================================
-                  PROJECT LINKS
-              ========================================== */}
+              {/* PROJECT LINKS */}
 
               {hasAnyLink && (
                 <div className="project-card-links">
-                  {/* GitHub */}
-
                   {hasGithubLink && (
                     <a
                       href={project.github}
@@ -158,8 +143,6 @@ function OtherProjects() {
                       <FaGithub aria-hidden="true" />
                     </a>
                   )}
-
-                  {/* Live project */}
 
                   {hasLiveLink && (
                     <a

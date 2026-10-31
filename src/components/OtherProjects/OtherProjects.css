@@ -380,3 +380,91 @@
     margin-bottom: 40px;
   }
 }
+
+/* Prevent the section from exceeding its container */
+
+.other-projects {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Header layout */
+
+.other-projects-header {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Two-line section heading */
+
+.other-projects-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
+}
+
+/* Ethiopian section number */
+
+.other-projects-title .section-number {
+  flex-shrink: 0;
+}
+
+/* Heading text */
+
+.other-projects-heading-text {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Remove decorative line that may cause overflow */
+
+.other-projects-title::after {
+  display: none;
+}
+
+/* Responsive project grid */
+
+.other-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Project card sizing */
+
+.project-card {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 768px) {
+  .other-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .other-projects-title {
+    gap: 10px;
+  }
+
+  .other-projects-heading-text {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+}
