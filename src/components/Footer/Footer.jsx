@@ -10,37 +10,37 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <div className="footer-divider">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div className="footer-divider" aria-hidden="true">
+        <span />
+        <span />
+        <span />
       </div>
 
-      <div className="footer-socials">
+      <nav className="footer-socials" aria-label="Social profiles">
         <a
-          href="https://github.com/"
+          href="https://github.com/haileyesus3126"
           target="_blank"
-          rel="noreferrer"
-          aria-label="Open Haileyesus Mesfin GitHub profile"
+          rel="noopener noreferrer"
+          aria-label="My GitHub profile, opens in a new tab"
+          title="GitHub"
         >
           <FaGithub aria-hidden="true" />
         </a>
 
         <a
-          href="https://linkedin.com/"
+          href="https://www.linkedin.com/in/haileyesus3126/"
           target="_blank"
-          rel="noreferrer"
-          aria-label="Open Haileyesus Mesfin LinkedIn profile"
+          rel="noopener noreferrer"
+          aria-label="My LinkedIn profile, opens in a new tab"
+          title="LinkedIn"
         >
           <FaLinkedinIn aria-hidden="true" />
         </a>
-      </div>
+      </nav>
 
       <p>
-        Designed &amp; Built by
-        <a href="#home">
-          {" "}Haileyesus Mesfin
-        </a>
+        Designed &amp; Built by{" "}
+        <a href="#home">Haileyesus Mesfin</a>
       </p>
 
       <span className="footer-year">

@@ -314,3 +314,18 @@
     transition: none;
   }
 }
+
+
+.about-photo-wrapper {
+  background: var(--light-navy);
+}
+
+.about-photo-wrapper::before {
+  display: none;
+}
+
+.about-photo {
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+}

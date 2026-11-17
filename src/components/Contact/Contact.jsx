@@ -1,7 +1,10 @@
-
 import {
   FaEnvelope,
   FaArrowUpRightFromSquare,
+  FaLinkedin,
+  FaGithub,
+  FaPhone,
+  FaLocationDot,
 } from "react-icons/fa6";
 
 import useScrollReveal from "../../hooks/useScrollReveal";
@@ -18,69 +21,86 @@ function Contact() {
       data-reveal
       aria-labelledby="contact-heading"
     >
-      {/* Background effects */}
-      <div
-        className="contact-glow contact-glow-left"
-        aria-hidden="true"
-      ></div>
-
-      <div
-        className="contact-glow contact-glow-right"
-        aria-hidden="true"
-      ></div>
-
       <div className="contact-content">
         <p className="contact-number">
-           ፭. What's Next?
+          ፬. Contact Me
         </p>
 
-        <h2
-          id="contact-heading"
-          className="contact-title"
-        >
-          Let's Build Something
-          <span> Meaningful.</span>
+        <h2 id="contact-heading" className="contact-title">
+          Let’s Work
+          <span> Together.</span>
         </h2>
 
         <p className="contact-description">
-          I'm a Web Developer with experience in
-          business applications, data operations,
-          and workflow automation.
-
-          I'm open to opportunities in web development,
-          application support, IT operations, and
-          collaborative technology projects.
-
-          If you're looking for someone who enjoys
-          solving problems, learning new technologies,
-          and building practical digital solutions,
-          I'd be happy to connect.
+          I’m looking for a Website Developer job.
+          If you have a role or a project for me,
+          I’d love to hear from you.
         </p>
 
-        {/* Email address */}
         <a
           href="mailto:haileyesus2024@gmail.com"
           className="contact-email"
-          aria-label="Send an email to Haileyesus Mesfin"
         >
           <FaEnvelope aria-hidden="true" />
-
-          <span>
-            haileyesus2024@gmail.com
-          </span>
+          <span>haileyesus2024@gmail.com</span>
         </a>
 
-        {/* Action buttons */}
+        <ul
+          className="contact-details"
+          aria-label="Contact details"
+        >
+          <li>
+            <a
+              href="https://github.com/haileyesus3126"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="My GitHub profile, opens in a new tab"
+            >
+              <FaGithub aria-hidden="true" />
+              GitHub
+              <FaArrowUpRightFromSquare
+                className="contact-detail-external"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.linkedin.com/in/haileyesus3126/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="My LinkedIn profile, opens in a new tab"
+            >
+              <FaLinkedin aria-hidden="true" />
+              LinkedIn
+              <FaArrowUpRightFromSquare
+                className="contact-detail-external"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+
+          <li>
+            <a href="tel:+251989853281">
+              <FaPhone aria-hidden="true" />
+              0989853281
+            </a>
+          </li>
+
+          <li className="contact-detail-location">
+            <FaLocationDot aria-hidden="true" />
+            Addis Ababa, Ethiopia
+          </li>
+        </ul>
+
         <div className="contact-actions">
           <a
             href="mailto:haileyesus2024@gmail.com"
             className="contact-button contact-button-primary"
           >
-            Say Hello
-
-            <FaArrowUpRightFromSquare
-              aria-hidden="true"
-            />
+            Email Me
+            <FaArrowUpRightFromSquare aria-hidden="true" />
           </a>
 
           <a
@@ -88,19 +108,14 @@ function Contact() {
             className="contact-button contact-button-secondary"
             download
           >
-            Download Resume
+            Download CV
           </a>
         </div>
 
-        {/* Decorative Ethiopian line */}
         <div
-          className="contact-ethiopian-line"
+          className="contact-line"
           aria-hidden="true"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        />
       </div>
     </section>
   );

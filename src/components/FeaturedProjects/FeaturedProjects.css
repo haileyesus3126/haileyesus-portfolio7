@@ -1,31 +1,34 @@
+/* ========================================
+   PROJECT SECTION
+======================================== */
+
 .featured-projects {
   min-height: auto;
+  min-width: 0;
+  container-type: inline-size;
 }
 
 .featured-projects-list {
   display: flex;
   flex-direction: column;
-
   gap: 110px;
 }
 
-/* ================================
-   PROJECT
-================================ */
+/* ========================================
+   ORIGINAL ALTERNATING LAYOUT
+======================================== */
 
 .featured-project {
   position: relative;
 
   display: grid;
-
   grid-template-columns:
     minmax(0, 1.1fr)
     minmax(300px, 0.9fr);
 
   align-items: center;
+  min-width: 0;
 }
-
-/* alternate direction */
 
 .featured-project.reverse {
   grid-template-columns:
@@ -33,24 +36,29 @@
     minmax(0, 1.1fr);
 }
 
-/* ================================
-   IMAGE
-================================ */
+/* ========================================
+   SCREENSHOT FRAME
+======================================== */
 
 .featured-project-image-wrapper {
   position: relative;
+  display: block;
 
   grid-column: 1 / 2;
-
   grid-row: 1;
 
+  min-width: 0;
   overflow: hidden;
 
-  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
 
-  background: var(--light-navy);
+  background: #14366d;
+  box-shadow: 0 16px 36px rgba(6, 24, 56, 0.2);
 
-  box-shadow: 0 20px 50px rgba(2, 12, 27, 0.35);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .featured-project.reverse
@@ -59,102 +67,124 @@
 }
 
 .featured-project-image {
-  width: 100%;
+  display: block;
 
+  width: 100%;
   aspect-ratio: 4 / 3;
 
   object-fit: cover;
+  object-position: top center;
 
-  transition: var(--transition);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Soft blue edge, without hiding screenshot colors */
 .featured-project-image-overlay {
   position: absolute;
-
   inset: 0;
 
-  background: rgba(100, 255, 218, 0.18);
+  background: linear-gradient(
+    180deg,
+    transparent 65%,
+    rgba(20, 54, 109, 0.22)
+  );
 
-  mix-blend-mode: multiply;
+  opacity: 1;
+  pointer-events: none;
 
-  transition: var(--transition);
+  transition: opacity 0.3s ease;
 }
 
-.featured-project-image-wrapper:hover
-  .featured-project-image-overlay {
-  background: transparent;
-}
-
-.featured-project-image-wrapper:hover
-  .featured-project-image {
-  transform: scale(1.02);
-}
-
-/* ================================
-   CONTENT
-================================ */
+/* ========================================
+   PROJECT CONTENT
+======================================== */
 
 .featured-project-content {
   position: relative;
-
   z-index: 2;
 
   grid-column: 2 / 3;
   grid-row: 1;
 
+  min-width: 0;
   text-align: right;
 }
 
 .featured-project.reverse
   .featured-project-content {
   grid-column: 1 / 2;
-
   text-align: left;
 }
 
 .featured-project-label {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 
-  color: var(--teal);
-
+  color: #d4e5ff;
   font-family: var(--font-mono);
-  font-size: var(--fz-xs);
+  font-size: 11px;
+  letter-spacing: 0.04em;
 }
 
 .featured-project-title {
   margin-bottom: 20px;
 
-  color: var(--lightest-slate);
-
+  color: #ffffff;
   font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  overflow-wrap: break-word;
 }
 
 .featured-project-title a {
   color: inherit;
+
+  transition: color 0.2s ease;
 }
 
-.featured-project-title a:hover {
-  color: var(--teal);
-}
-
-/* ================================
+/* ========================================
    DESCRIPTION CARD
-================================ */
+======================================== */
 
 .featured-project-description {
   position: relative;
-
   z-index: 3;
 
   padding: 24px;
-
   margin-left: -70px;
 
-  background: var(--light-navy);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
 
-  border-radius: var(--border-radius);
+  background: #14366d;
+  box-shadow: 0 12px 30px rgba(6, 24, 56, 0.2);
 
-  box-shadow: 0 10px 30px rgba(2, 12, 27, 0.35);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Small highlight along the top edge */
+.featured-project-description::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+
+  opacity: 0.35;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
 }
 
 .featured-project.reverse
@@ -164,24 +194,21 @@
 }
 
 .featured-project-description p {
-  color: var(--light-slate);
-
+  color: #e5edfa;
   font-size: var(--fz-md);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* ================================
-   TECHNOLOGIES
-================================ */
+/* ========================================
+   TECHNOLOGY TAGS
+======================================== */
 
 .featured-project-tech {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: flex-end;
 
-  gap: 10px 16px;
-
+  gap: 8px;
   margin-top: 20px;
 }
 
@@ -191,22 +218,27 @@
 }
 
 .featured-project-tech li {
-  color: var(--light-slate);
+  padding: 5px 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5edfa;
 
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 1.5;
 }
 
-/* ================================
-   LINKS
-================================ */
+/* ========================================
+   PROJECT LINKS
+======================================== */
 
 .featured-project-links {
   display: flex;
-
   justify-content: flex-end;
-
-  gap: 16px;
+  gap: 10px;
 
   margin-top: 18px;
 }
@@ -217,22 +249,135 @@
 }
 
 .featured-project-links a {
-  color: var(--lightest-slate);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size: 1.1rem;
+  width: 44px;
+  height: 44px;
 
-  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+
+  font-size: 17px;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.featured-project-links a:hover {
-  color: var(--teal);
-
-  transform: translateY(-2px);
+.featured-project-links svg {
+  width: 17px;
+  height: 17px;
 }
 
-/* ================================
-   TABLET / MOBILE
-================================ */
+.featured-projects a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Show the frame clearly when using a keyboard */
+.featured-project:focus-within
+  .featured-project-image-wrapper {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.featured-project:focus-within
+  .featured-project-description {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   SUBTLE HOVER ANIMATION
+======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .featured-project:hover
+    .featured-project-image-wrapper {
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 22px 44px rgba(6, 24, 56, 0.26);
+  }
+
+  .featured-project:hover
+    .featured-project-image {
+    transform: scale(1.035);
+  }
+
+  .featured-project:hover
+    .featured-project-image-overlay {
+    opacity: 0;
+  }
+
+  .featured-project:hover
+    .featured-project-description {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 18px 38px rgba(6, 24, 56, 0.26);
+  }
+
+  .featured-project:hover
+    .featured-project-description::before {
+    opacity: 1;
+  }
+
+  .featured-project-title a:hover {
+    color: #c2daff;
+  }
+
+  .featured-project-links a:hover {
+    transform: translateY(-3px);
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #1a458d;
+  }
+}
+
+/* ========================================
+   FALLBACK PREVIEW
+======================================== */
+
+.featured-project-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  width: 100%;
+  min-height: 260px;
+  padding: 30px;
+
+  background: linear-gradient(
+    135deg,
+    #14366d,
+    #25579f
+  );
+
+  color: #ffffff;
+  text-align: center;
+}
+
+.featured-project-placeholder svg {
+  font-size: 44px;
+  opacity: 0.85;
+}
+
+.featured-project-placeholder span {
+  max-width: 280px;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ========================================
+   TABLET AND MOBILE
+======================================== */
 
 @media (max-width: 900px) {
   .featured-project,
@@ -249,8 +394,7 @@
   .featured-project-content,
   .featured-project.reverse
     .featured-project-content {
-    margin-top: -80px;
-
+    margin-top: -60px;
     padding: 24px;
 
     text-align: left;
@@ -260,16 +404,53 @@
   .featured-project.reverse
     .featured-project-description {
     margin: 0;
-
-    background: rgba(17, 34, 64, 0.94);
+    background: #14366d;
   }
 
   .featured-project-tech,
   .featured-project.reverse
-    .featured-project-tech {
+    .featured-project-tech,
+  .featured-project-links,
+  .featured-project.reverse
+    .featured-project-links {
     justify-content: flex-start;
   }
+}
 
+/*
+  Also stack when the content column is narrow,
+  even on a wide desktop with a fixed sidebar.
+*/
+@container (max-width: 560px) {
+  .featured-project,
+  .featured-project.reverse {
+    display: block;
+  }
+
+  .featured-project-image-wrapper,
+  .featured-project.reverse
+    .featured-project-image-wrapper {
+    width: 100%;
+  }
+
+  .featured-project-content,
+  .featured-project.reverse
+    .featured-project-content {
+    margin-top: 20px;
+    padding: 0;
+
+    text-align: left;
+  }
+
+  .featured-project-description,
+  .featured-project.reverse
+    .featured-project-description {
+    margin: 0;
+  }
+
+  .featured-project-tech,
+  .featured-project.reverse
+    .featured-project-tech,
   .featured-project-links,
   .featured-project.reverse
     .featured-project-links {
@@ -282,14 +463,6 @@
     gap: 80px;
   }
 
-  .featured-project-content,
-  .featured-project.reverse
-    .featured-project-content {
-    margin-top: -50px;
-
-    padding: 18px;
-  }
-
   .featured-project-description {
     padding: 20px;
   }
@@ -297,46 +470,7 @@
   .featured-project-description p {
     font-size: 0.95rem;
   }
-}
 
-/* Fallback preview for projects without screenshots */
-
-.featured-project-placeholder {
-  width: 100%;
-  min-height: 260px;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-
-  padding: 30px;
-  text-align: center;
-
-  background: linear-gradient(
-    135deg,
-    #112240,
-    #172a46
-  );
-
-  color: #64ffda;
-}
-
-.featured-project-placeholder svg {
-  font-size: 48px;
-  opacity: 0.85;
-}
-
-.featured-project-placeholder span {
-  max-width: 280px;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-@media (max-width: 768px) {
   .featured-project-placeholder {
     min-height: 200px;
   }
@@ -347,5 +481,29 @@
 
   .featured-project-placeholder span {
     font-size: 17px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-project-image-wrapper,
+  .featured-project-image,
+  .featured-project-image-overlay,
+  .featured-project-description,
+  .featured-project-description::before,
+  .featured-project-title a,
+  .featured-project-links a {
+    transition: none;
+  }
+
+  .featured-project:hover
+    .featured-project-image,
+  .featured-project:hover
+    .featured-project-description,
+  .featured-project-links a:hover {
+    transform: none;
   }
 }

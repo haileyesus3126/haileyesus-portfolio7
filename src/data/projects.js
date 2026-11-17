@@ -3,6 +3,8 @@ import orderIssuesImage from "../assets/projects/order-issues.png";
 import rentalManagementImage from "../assets/projects/rental-management.png";
 import inventoryManagementImage from "../assets/projects/inventory-management.png";
 import ruthStoreImage from "../assets/projects/ruth-store.png";
+import amazonImage from "../assets/projects/amazon.png";
+import netflixImage from "../assets/projects/netflix.png";
 
 const featuredProjects = [
   {
@@ -122,6 +124,42 @@ const featuredProjects = [
 
     live:
       "https://ruth-store-7.vercel.app/",
+  },
+
+      {
+    title: "Amazon Clone",
+
+    featuredLabel: "Personal Project",
+
+    description:
+      "An Amazon-inspired shopping website with product pages and a responsive layout.",
+
+    technologies: [
+      "Web Development",
+      "Responsive Design",
+    ],
+
+    image: amazonImage,
+    github: "",
+    live: "",
+  },
+
+  {
+    title: "Netflix Clone",
+
+    featuredLabel: "Personal Project",
+
+    description:
+      "A Netflix-inspired website with movie cards and a responsive browsing layout.",
+
+    technologies: [
+      "Web Development",
+      "Responsive Design",
+    ],
+
+    image: netflixImage,
+    github: "",
+    live: "",
   },
 ];
 

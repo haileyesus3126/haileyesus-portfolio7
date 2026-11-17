@@ -22,7 +22,7 @@ function App() {
         <About />
         <Experience />
         <FeaturedProjects />
-        <OtherProjects />
+       
         <Contact />
         <Footer />
       </Layout>

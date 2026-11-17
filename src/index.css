@@ -1,49 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 /* =========================================
-   DESIGN TOKENS
-   Ethiopian-inspired, but still professional
+   BLUE COLORS
 ========================================= */
 
 :root {
-  /* Main backgrounds */
-  --navy: #081525;
-  --light-navy: #0f2238;
-  --lightest-navy: #18324f;
+  /* Main background and panels */
+  --brand-blue: #1a458d;
 
-  /* Ethiopian flag colors */
-  --ethiopian-green: #078930;
-  --ethiopian-green-light: #18b64b;
+  --navy: #1a458d;
+  --light-navy: #14366d;
+  --lightest-navy: #25579f;
 
-  --ethiopian-yellow: #fcd116;
-  --ethiopian-gold: #d7ad0d;
+  /* Keep old variable names for compatibility */
+  --ethiopian-green: #8dbbff;
+  --ethiopian-green-light: #e0ecff;
 
-  --ethiopian-red: #da121a;
-  --ethiopian-red-light: #ef4444;
+  --ethiopian-yellow: #ffffff;
+  --ethiopian-gold: #c4dbff;
 
-  /* Primary accent */
-  --teal: var(--ethiopian-green-light);
+  --ethiopian-red: #80adf0;
+  --ethiopian-red-light: #b8d4ff;
 
-  /* Accent tints */
-  --teal-tint: rgba(24, 182, 75, 0.1);
-  --green-tint: rgba(24, 182, 75, 0.1);
-  --yellow-tint: rgba(252, 209, 22, 0.1);
-  --red-tint: rgba(218, 18, 26, 0.1);
+  /* Accent */
+  --teal: #e0ecff;
 
-  /* Text colors */
-  --slate: #94a3b8;
-  --light-slate: #c3cee3;
-  --lightest-slate: #edf3ff;
-  --white: #f8fafc;
+  /* Soft backgrounds */
+  --teal-tint: rgba(255, 255, 255, 0.08);
+  --green-tint: rgba(255, 255, 255, 0.08);
+  --yellow-tint: rgba(255, 255, 255, 0.12);
+  --red-tint: rgba(255, 255, 255, 0.06);
+
+  /* Text */
+  --slate: #d5e2f5;
+  --light-slate: #e5edfa;
+  --lightest-slate: #ffffff;
+  --white: #ffffff;
 
   /* Borders */
-  --border-color: rgba(148, 163, 184, 0.16);
+  --border-color: rgba(255, 255, 255, 0.18);
 
   /* Fonts */
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Font sizes */
+  /* Original font sizes */
   --fz-xs: 13px;
   --fz-sm: 14px;
   --fz-md: 16px;
@@ -52,12 +53,16 @@
   --fz-xxl: 22px;
   --fz-heading: 32px;
 
-  /* Layout */
+  /* Original layout */
   --container-width: 1200px;
   --border-radius: 4px;
 
-  /* Transition */
-  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 /* =========================================
@@ -72,9 +77,8 @@
 
 html {
   scroll-behavior: smooth;
-
   scrollbar-width: thin;
-  scrollbar-color: var(--lightest-navy) var(--navy);
+  scrollbar-color: #739bd9 var(--navy);
 }
 
 body {
@@ -83,14 +87,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  background:
-    radial-gradient(
-      circle at 85% 15%,
-      rgba(7, 137, 48, 0.04),
-      transparent 30%
-    ),
-    var(--navy);
-
+  background: var(--brand-blue);
   color: var(--slate);
 
   font-family: var(--font-sans);
@@ -118,13 +115,12 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--lightest-navy);
-
+  background: #739bd9;
   border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: var(--ethiopian-green-light);
+  background: #aacbff;
 }
 
 /* =========================================
@@ -151,9 +147,7 @@ p {
 
 a {
   color: inherit;
-
   text-decoration: none;
-
   transition: var(--transition);
 }
 
@@ -170,7 +164,6 @@ button {
 img,
 svg {
   display: block;
-
   max-width: 100%;
 }
 
@@ -178,7 +171,6 @@ ul,
 ol {
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
@@ -187,13 +179,12 @@ ol {
 ========================================= */
 
 ::selection {
-  background: rgba(24, 182, 75, 0.22);
-
-  color: var(--lightest-slate);
+  background: #ffffff;
+  color: var(--brand-blue);
 }
 
 /* =========================================
-   SHARED CONTAINER
+   ORIGINAL CONTAINER
 ========================================= */
 
 .container {
@@ -206,12 +197,11 @@ ol {
 }
 
 /* =========================================
-   SECTION STRUCTURE
+   ORIGINAL SECTION SPACING
 ========================================= */
 
 .section {
   padding: 110px 0;
-
   scroll-margin-top: 90px;
 }
 
@@ -220,7 +210,6 @@ ol {
   align-items: center;
 
   width: 100%;
-
   margin-bottom: 40px;
 
   color: var(--lightest-slate);
@@ -232,11 +221,8 @@ ol {
   );
 
   font-weight: 700;
-
   white-space: nowrap;
 }
-
-/* Ethiopian gradient divider */
 
 .section-heading::after {
   content: "";
@@ -245,68 +231,58 @@ ol {
 
   width: 300px;
   height: 1px;
-
   margin-left: 20px;
 
   background: linear-gradient(
     90deg,
-    var(--ethiopian-green),
-    var(--ethiopian-yellow),
-    var(--ethiopian-red)
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.08)
   );
-
-  opacity: 0.45;
 }
-
-/* Section number */
 
 .section-number {
   margin-right: 10px;
 
-  color: var(--ethiopian-green-light);
+  color: var(--teal);
 
   font-family: var(--font-mono);
-
   font-size: 0.65em;
   font-weight: 400;
 }
 
 /* =========================================
-   SHARED OUTLINE BUTTON
+   BUTTONS
 ========================================= */
 
 .outline-button {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
   padding: 0.9rem 1.4rem;
 
-  border: 1px solid var(--ethiopian-green-light);
-
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--border-radius);
 
   background: transparent;
-
-  color: var(--ethiopian-green-light);
+  color: #ffffff;
 
   font-family: var(--font-mono);
   font-size: var(--fz-sm);
 
   cursor: pointer;
-
   transition: var(--transition);
 }
 
-.outline-button:hover {
-  border-color: var(--ethiopian-yellow);
+@media (hover: hover) and (pointer: fine) {
+  .outline-button:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 
-  background: var(--yellow-tint);
-
-  color: var(--ethiopian-yellow);
-
-  transform: translateY(-2px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(7, 26, 60, 0.15);
+  }
 }
 
 /* =========================================
@@ -315,52 +291,44 @@ ol {
 
 .inline-link {
   position: relative;
-
-  color: var(--ethiopian-green-light);
+  color: var(--teal);
 }
 
 .inline-link::after {
   content: "";
 
   position: absolute;
-
   left: 0;
   bottom: -2px;
 
   width: 0;
   height: 1px;
 
-  background: linear-gradient(
-    90deg,
-    var(--ethiopian-green),
-    var(--ethiopian-yellow),
-    var(--ethiopian-red)
-  );
-
+  background: #ffffff;
   transition: width 0.2s ease;
 }
 
-.inline-link:hover::after {
+.inline-link:hover::after,
+.inline-link:focus-visible::after {
   width: 100%;
 }
 
 /* =========================================
-   SCROLL REVEAL
+   EXISTING SCROLL REVEAL
 ========================================= */
 
 [data-reveal] {
   opacity: 0;
-
-  transform: translateY(20px);
+  transform: translateY(16px);
 
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
 }
 
-[data-reveal].revealed {
+[data-reveal].revealed,
+[data-reveal]:focus-within {
   opacity: 1;
-
   transform: translateY(0);
 }
 
@@ -370,26 +338,21 @@ ol {
 
 .skip-link {
   position: fixed;
-
   top: 12px;
   left: 12px;
-
   z-index: 3000;
 
   padding: 10px 14px;
-
   border-radius: var(--border-radius);
 
-  background: var(--ethiopian-yellow);
-
-  color: var(--navy);
+  background: #ffffff;
+  color: var(--brand-blue);
 
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
 
   transform: translateY(-160%);
-
   transition: transform 0.2s ease;
 }
 
@@ -398,11 +361,8 @@ ol {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ethiopian-yellow);
-
+  outline: 2px solid #ffffff;
   outline-offset: 4px;
-
-  border-radius: 2px;
 }
 
 /* =========================================
@@ -433,7 +393,6 @@ ol {
 
   .section {
     padding: 70px 0;
-
     scroll-margin-top: 80px;
   }
 
@@ -476,11 +435,17 @@ ol {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-
     animation-iteration-count: 1 !important;
-
     transition-duration: 0.01ms !important;
-
     scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .outline-button:hover {
+    transform: none;
   }
 }

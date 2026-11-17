@@ -1,11 +1,8 @@
-
-import { useEffect, useState } from "react";
-
 import {
   FaGithub,
+  FaLinkedinIn,
+  FaEnvelope,
   FaArrowUpRightFromSquare,
-  FaTerminal,
-  FaCircleCheck,
 } from "react-icons/fa6";
 
 import useActiveSection from "../../hooks/useActiveSection";
@@ -18,58 +15,21 @@ const navigation = [
   { id: "contact", label: "CONTACT" },
 ];
 
-const roles = [
-  "Web Developer",
-  "React Developer",
-  "Problem Solver",
-];
+const sectionIds = navigation.map((item) => item.id);
 
 function Hero() {
-  const activeSection = useActiveSection(
-    navigation.map((item) => item.id)
-  );
-
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [typedRole, setTypedRole] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  // Animated typing effect for developer roles
-  useEffect(() => {
-    const currentRole = roles[roleIndex];
-
-    let delay = isDeleting ? 45 : 95;
-
-    if (!isDeleting && typedRole === currentRole) {
-      delay = 1800;
-    }
-
-    const timeout = window.setTimeout(() => {
-      if (!isDeleting) {
-        if (typedRole === currentRole) {
-          setIsDeleting(true);
-        } else {
-          setTypedRole(currentRole.slice(0, typedRole.length + 1));
-        }
-      } else if (typedRole.length === 0) {
-        setIsDeleting(false);
-        setRoleIndex((index) => (index + 1) % roles.length);
-      } else {
-        setTypedRole(typedRole.slice(0, -1));
-      }
-    }, delay);
-
-    return () => window.clearTimeout(timeout);
-  }, [typedRole, isDeleting, roleIndex]);
+  const activeSection = useActiveSection(sectionIds);
 
   return (
     <div className="sidebar-hero" id="home">
       <div className="sidebar-hero-inner">
-
-        {/* Animated introduction */}
         <header className="sidebar-hero-top">
           <p className="sidebar-intro hero-animate-in">
-            <span className="hero-status-dot" />
-            HELLO, I'M
+            <span
+              className="hero-status-dot"
+              aria-hidden="true"
+            />
+            HELLO, I’M
           </p>
 
           <h1 className="sidebar-name hero-animate-in">
@@ -77,82 +37,22 @@ function Hero() {
             <span>Mesfin.</span>
           </h1>
 
-          {/* Animated developer role */}
           <h2 className="sidebar-tagline hero-animate-in">
             <span className="hero-typed-role">
-              {typedRole}
-              <span
-                className="hero-typing-cursor"
-                aria-hidden="true"
-              >
-                |
-              </span>
+              Website Developer
+            </span>
+
+            <span
+              className="hero-typing-cursor"
+              aria-hidden="true"
+            >
+              |
             </span>
           </h2>
 
           <p className="sidebar-description hero-animate-in">
-            Turning ideas and business challenges into
-            practical web applications.
+            I build websites and tools that make daily work easier.
           </p>
-
-          {/* Animated developer terminal */}
-         <div className="hero-terminal">
-            <div className="hero-terminal-header">
-              <div className="hero-terminal-dots">
-                <span />
-                <span />
-                <span />
-              </div>
-
-              <span className="hero-terminal-title">
-                <FaTerminal aria-hidden="true" />
-                developer.js
-              </span>
-            </div>
-
-            <div className="hero-terminal-body">
-              <div>
-                <span className="hero-code-keyword">const</span>
-                {" developer = {"}
-              </div>
-
-              <div>
-                {"  "}
-                <span className="hero-code-property">name</span>
-                {": "}
-                <span className="hero-code-string">
-                  "Haileyesus"
-                </span>
-                {","}
-              </div>
-
-              <div>
-                {"  "}
-                <span className="hero-code-property">skills</span>
-                {": ["}
-                <span className="hero-code-string">
-                  "React", "Next.js", "Node.js"
-                </span>
-                {"],"}
-              </div>
-
-              <div>
-                {"  "}
-                <span className="hero-code-property">goal</span>
-                {": "}
-                <span className="hero-code-string">
-                  "Build useful solutions"
-                </span>
-              </div>
-
-              <div>{"};"}</div>
-            </div>
-
-            <div className="hero-terminal-status">
-             <FaCircleCheck aria-hidden="true" />
-              <span>Ready to build</span>
-            </div>
-          </div>
 
           <a
             href="#projects"
@@ -163,7 +63,6 @@ function Hero() {
           </a>
         </header>
 
-        {/* Section navigation */}
         <nav
           className="sidebar-nav"
           aria-label="Portfolio section navigation"
@@ -193,24 +92,33 @@ function Hero() {
           })}
         </nav>
 
-        {/* Social links */}
         <div className="sidebar-socials">
           <a
             href="https://github.com/haileyesus3126"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View GitHub profile"
+            aria-label="My GitHub profile, opens in a new tab"
             title="GitHub"
           >
             <FaGithub aria-hidden="true" />
           </a>
 
           <a
+            href="https://www.linkedin.com/in/haileyesus3126/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="My LinkedIn profile, opens in a new tab"
+            title="LinkedIn"
+          >
+            <FaLinkedinIn aria-hidden="true" />
+          </a>
+
+          <a
             href="mailto:haileyesus2024@gmail.com"
-            aria-label="Send an email"
+            aria-label="Email Haileyesus"
             title="Email me"
           >
-            <span className="hero-email-icon">@</span>
+            <FaEnvelope aria-hidden="true" />
           </a>
         </div>
       </div>

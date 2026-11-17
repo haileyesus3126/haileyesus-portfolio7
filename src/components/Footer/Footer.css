@@ -1,108 +1,145 @@
-/* =========================================
+/* ========================================
    FOOTER
-========================================= */
+======================================== */
 
 .footer {
-  padding: 24px 0 42px;
-
   display: flex;
   flex-direction: column;
-
   align-items: center;
 
+  padding: 24px 0 42px;
   text-align: center;
 }
 
-/* =========================================
-   ETHIOPIAN DIVIDER
-========================================= */
+/* ========================================
+   BLUE DIVIDER
+======================================== */
 
 .footer-divider {
-  width: 90px;
-
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 3px;
 
+  width: 90px;
   margin-bottom: 24px;
 }
 
 .footer-divider span {
   height: 2px;
-
   border-radius: 99px;
 }
 
 .footer-divider span:nth-child(1) {
-  background: var(--ethiopian-green);
+  background: #8dbbff;
 }
 
 .footer-divider span:nth-child(2) {
-  background: var(--ethiopian-yellow);
+  background: #ffffff;
 }
 
 .footer-divider span:nth-child(3) {
-  background: var(--ethiopian-red);
+  background: #8dbbff;
 }
 
-/* =========================================
-   SOCIALS
-========================================= */
+/* ========================================
+   SOCIAL LINKS
+======================================== */
 
 .footer-socials {
   display: flex;
-
   align-items: center;
-
-  gap: 18px;
+  gap: 12px;
 
   margin-bottom: 18px;
 }
 
 .footer-socials a {
-  color: var(--slate);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size: 1.15rem;
+  width: 44px;
+  height: 44px;
 
-  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: #e0eafb;
+
+  font-size: 18px;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
-.footer-socials a:hover {
-  color: var(--ethiopian-green-light);
-
-  transform: translateY(-3px);
-}
-
-/* =========================================
+/* ========================================
    TEXT
-========================================= */
+======================================== */
 
 .footer p {
   margin-bottom: 6px;
 
-  color: var(--slate);
-
+  color: #d5e2f5;
   font-family: var(--font-mono);
-
   font-size: 11px;
+  line-height: 1.8;
 }
 
 .footer p a {
-  color: var(--light-slate);
-}
+  color: #ffffff;
 
-.footer p a:hover {
-  color: var(--ethiopian-yellow);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+
+  transition: text-decoration-color 0.25s ease;
 }
 
 .footer-year {
-  color: var(--slate);
+  color: #c4d7f3;
 
   font-family: var(--font-mono);
-
   font-size: 10px;
+}
 
-  opacity: 0.7;
+/* ========================================
+   INTERACTIONS
+======================================== */
+
+.footer a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-socials a:hover {
+    transform: translateY(-3px);
+
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #1a458d;
+  }
+
+  .footer p a:hover {
+    text-decoration-color: #ffffff;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-socials a,
+  .footer p a {
+    transition: none;
+  }
+
+  .footer-socials a:hover {
+    transform: none;
+  }
 }

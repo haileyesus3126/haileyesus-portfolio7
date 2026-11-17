@@ -1,70 +1,74 @@
 /* =========================================
-   NAVBAR
+   BLUE NAVBAR
 ========================================= */
 
 .navbar {
   position: fixed;
-
   top: 0;
   left: 0;
-
-  width: 100%;
-
+  right: 0;
   z-index: 1000;
 
+  width: auto;
   padding: 10px 40px;
 
-  background: rgba(10, 25, 47, 0.94);
+  border: 1px solid transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+
+  background: rgba(26, 69, 141, 0.96);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  border-bottom: 1px solid rgba(136, 146, 176, 0.08);
+  box-shadow: 0 8px 24px rgba(6, 24, 56, 0.12);
 
-  box-shadow: 0 8px 24px rgba(2, 12, 27, 0.2);
+  transition:
+    top 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    border-radius 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 .navbar-container {
-  width: min(1240px, 100%);
-
-  margin-inline: auto;
-
   display: flex;
-
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
+
+  width: min(1240px, 100%);
+  margin-inline: auto;
 }
 
 /* =========================================
-   LOGO
+   ORIGINAL LOGO
 ========================================= */
 
 .navbar-logo {
-  width: 38px;
-  height: 38px;
-
   display: grid;
   place-items: center;
-
   flex-shrink: 0;
 
-  border: 1px solid var(--teal);
+  width: 44px;
+  height: 44px;
 
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 50%;
 
-  color: var(--teal);
+  background: transparent;
+  color: #ffffff;
 
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 600;
 
-  transition: var(--transition);
-}
-
-.navbar-logo:hover {
-  background: var(--teal-tint);
-
-  transform: translateY(-2px);
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 /* =========================================
@@ -73,85 +77,129 @@
 
 .navbar-menu {
   display: flex;
-
   align-items: center;
-
   gap: 24px;
 }
 
 .navbar-menu a {
   position: relative;
 
-  color: var(--light-slate);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
+  min-height: 44px;
+
+  color: #e5edfa;
   font-family: var(--font-mono);
   font-size: 12px;
 
-  transition: var(--transition);
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
-.navbar-menu a:hover {
-  color: var(--teal);
+.navbar-link-number {
+  margin-right: 6px;
+
+  color: #c4dbff;
+  font-size: 0.8em;
 }
 
-.navbar-menu a.active {
-  color: var(--teal);
-}
-
-.navbar-menu a.active:not(.navbar-resume)::after {
+.navbar-menu a:not(.navbar-resume)::after {
   content: "";
 
   position: absolute;
-
   left: 0;
   right: 0;
-
-  bottom: -8px;
+  bottom: 3px;
 
   height: 1px;
+  background: #ffffff;
 
-  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.25s ease;
+}
+
+.navbar-menu a.active {
+  color: #ffffff;
+}
+
+.navbar-menu a.active:not(.navbar-resume)::after {
+  transform: scaleX(1);
 }
 
 /* =========================================
-   RESUME BUTTON
+   RESUME
 ========================================= */
 
-.navbar-resume {
-  padding: 8px 14px;
+.navbar-menu .navbar-resume {
+  padding: 8px 16px;
 
-  border: 1px solid var(--teal);
+  border: 1px solid #ffffff;
+  border-radius: 6px;
 
-  border-radius: var(--border-radius);
+  background: #ffffff;
+  color: #1a458d;
 
-  color: var(--teal) !important;
-}
-
-.navbar-resume:hover {
-  background: var(--teal-tint);
+  font-weight: 600;
 }
 
 /* =========================================
-   MOBILE BUTTON
+   FLOATING NAVBAR
+========================================= */
+
+.navbar.navbar-scrolled {
+  top: 14px;
+  left: 3%;
+  right: 3%;
+
+  border-color: rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+
+  background: rgba(21, 58, 120, 0.97);
+
+  box-shadow: 0 12px 32px rgba(6, 24, 56, 0.2);
+}
+
+.navbar.navbar-hidden {
+  transform: translateY(calc(-100% - 24px));
+}
+
+/* Keep navigation reachable when using a keyboard */
+.navbar.navbar-hidden:focus-within,
+.navbar.navbar-menu-active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   MOBILE TOGGLE
 ========================================= */
 
 .navbar-toggle {
-  display: none;
-
   position: relative;
-
   z-index: 1200;
 
-  padding: 8px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 
-  border: 0;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
 
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
 
-  color: var(--teal);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
 
-  font-size: 1.5rem;
-
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -161,19 +209,17 @@
 
 .navbar-overlay {
   position: fixed;
-
   inset: 0;
-
   z-index: 900;
 
-  background: rgba(2, 12, 27, 0.72);
+  background: rgba(5, 20, 48, 0.6);
 
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 
   opacity: 0;
-
   visibility: hidden;
+  pointer-events: none;
 
   transition:
     opacity 0.3s ease,
@@ -182,18 +228,55 @@
 
 .navbar-overlay.visible {
   opacity: 1;
-
   visibility: visible;
+  pointer-events: auto;
 }
-
-/* Stop body scrolling while mobile menu is open */
 
 body.menu-open {
   overflow: hidden;
 }
 
 /* =========================================
-   TABLET / MOBILE
+   HOVER AND FOCUS
+========================================= */
+
+.navbar a:focus-visible,
+.navbar button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar-logo:hover {
+    transform: translateY(-2px);
+
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-menu a:not(.navbar-resume):hover {
+    color: #ffffff;
+  }
+
+  .navbar-menu a:not(.navbar-resume):hover::after {
+    transform: scaleX(1);
+  }
+
+  .navbar-menu .navbar-resume:hover {
+    transform: translateY(-2px);
+
+    border-color: #e2edff;
+    background: #e2edff;
+    color: #1a458d;
+  }
+
+  .navbar-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* =========================================
+   TABLET AND MOBILE
 ========================================= */
 
 @media (max-width: 768px) {
@@ -202,152 +285,354 @@ body.menu-open {
   }
 
   .navbar-toggle {
-    display: block;
+    display: inline-flex;
   }
 
-  .navbar-menu {
-    position: fixed;
-
-    top: 0;
-    right: 0;
-
-    z-index: 1100;
-
-    width: min(78vw, 340px);
-    height: 100vh;
-
-    padding: 100px 36px 40px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 26px;
-
-    background: var(--light-navy);
-
-    box-shadow: -20px 0 50px rgba(2, 12, 27, 0.45);
-
-    transform: translateX(100%);
-
-    transition: transform 0.3s ease;
-  }
-
-  .navbar-menu.open {
-    transform: translateX(0);
-  }
-
-  .navbar-menu a {
-    width: 100%;
-
-    padding: 5px 0;
-
-    font-size: 14px;
-  }
-
-  .navbar-menu a.active:not(.navbar-resume)::after {
-    display: none;
-  }
-
-  .navbar-resume {
-    width: auto;
-
-    margin-top: 8px;
-
-    padding: 10px 18px;
-  }
-}
-
-
-/* ========================================
-   PROFESSIONAL SCROLLING NAVBAR
-======================================== */
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-
-  transition:
-    top 0.35s ease,
-    left 0.35s ease,
-    right 0.35s ease,
-    border-radius 0.35s ease,
-    background 0.35s ease,
-    box-shadow 0.35s ease,
-    transform 0.35s ease;
-}
-
-/* Floating appearance after scrolling */
-.navbar.navbar-scrolled {
-  top: 14px;
-  left: 3%;
-  right: 3%;
-
-  border: 1px solid rgba(100, 255, 218, 0.12);
-  border-radius: 18px;
-
-  background: rgba(10, 25, 47, 0.94);
-
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.25),
-    0 0 20px rgba(100, 255, 218, 0.03);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-/* Hide navbar while scrolling down */
-.navbar.navbar-hidden {
-  transform: translateY(calc(-100% - 24px));
-}
-
-/* Link numbering */
-.navbar-link-number {
-  color: #64ffda;
-  font-size: 0.8em;
-  margin-right: 6px;
-}
-
-/* Active link */
-.navbar-menu a.active {
-  color: #64ffda;
-}
-
-/* Hover interactions */
-.navbar-menu a:not(.navbar-resume) {
-  transition: color 0.25s ease;
-}
-
-.navbar-menu a:not(.navbar-resume):hover {
-  color: #64ffda;
-}
-
-/* Prevent hiding while mobile menu is open */
-.navbar.navbar-menu-active {
-  transform: translateY(0);
-}
-
-/* Mobile layout */
-@media (max-width: 768px) {
   .navbar.navbar-scrolled {
     top: 10px;
     left: 12px;
     right: 12px;
-    border-radius: 14px;
+
+    border-radius: 12px;
   }
 
-  .navbar.navbar-hidden {
-    transform: translateY(calc(-100% - 20px));
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1100;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+
+    width: min(82vw, 340px);
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 100px 28px 32px;
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: #14366d;
+    box-shadow: -20px 0 50px rgba(5, 20, 48, 0.25);
+
+    visibility: hidden;
+    transform: translateX(100%);
+
+    transition:
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .navbar-menu.open {
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .navbar-menu a {
+    justify-content: flex-start;
+
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 12px;
+
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .navbar-menu a.active:not(.navbar-resume) {
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  .navbar-menu a:not(.navbar-resume)::after {
+    display: none;
+  }
+
+  .navbar-menu .navbar-resume {
+    justify-content: center;
+    margin-top: 10px;
+    padding: 12px 18px;
+  }
+
+  /*
+    Keep the open panel aligned with the viewport
+    instead of the floating navbar.
+  */
+  .navbar.navbar-menu-active {
+    top: 0;
+    left: 0;
+    right: 0;
+
+    border-radius: 0;
+
+    background: #1a458d;
+    box-shadow: none;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    transform: none;
+    transition: none;
   }
 }
 
-/* Accessibility: reduce animation */
+/* Avoid keeping page scrolling locked on desktop */
+@media (min-width: 769px) {
+  body.menu-open {
+    overflow: auto;
+  }
+
+  .navbar-overlay {
+    display: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .navbar {
+  .navbar,
+  .navbar-logo,
+  .navbar-menu,
+  .navbar-menu a,
+  .navbar-menu a::after,
+  .navbar-overlay {
     transition: none;
+  }
+
+  .navbar-logo:hover,
+  .navbar-menu .navbar-resume:hover {
+    transform: none;
+  }
+}
+
+/* =========================================
+   NAVBAR ANIMATIONS
+========================================= */
+
+/* Fade in without affecting the scroll animation */
+.navbar {
+  animation: navbar-appear 0.6s ease both;
+}
+
+@keyframes navbar-appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar-logo {
+  position: relative;
+  isolation: isolate;
+}
+
+.navbar-logo::after {
+  content: "";
+
+  position: absolute;
+  inset: -5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: inherit;
+
+  opacity: 0;
+  transform: scale(0.85);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* =========================================
+   DESKTOP LINKS
+========================================= */
+
+.navbar-menu a:not(.navbar-resume) {
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.navbar-menu a:not(.navbar-resume)::after {
+  height: 2px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #b4d3ff,
+    #ffffff
+  );
+
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-link-number {
+  display: inline-block;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* =========================================
+   RESUME BUTTON SHINE
+========================================= */
+
+.navbar-menu .navbar-resume {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.navbar-menu .navbar-resume::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(26, 69, 141, 0.13) 50%,
+    transparent 80%
+  );
+
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+/* =========================================
+   HOVER AND KEYBOARD EFFECTS
+========================================= */
+
+.navbar-logo:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.navbar-menu a:not(.navbar-resume):focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar-logo:hover {
+    transform: translateY(-2px) rotate(-5deg);
+  }
+
+  .navbar-logo:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .navbar-menu a:not(.navbar-resume):hover {
+    transform: translateY(-2px);
+  }
+
+  .navbar-menu a:hover .navbar-link-number {
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+
+  .navbar-menu .navbar-resume:hover::before {
+    animation: navbar-button-shine 0.65s ease;
+  }
+}
+
+@keyframes navbar-button-shine {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* =========================================
+   MOBILE LINK ENTRANCE
+========================================= */
+
+@media (max-width: 768px) {
+  .navbar-menu.open a {
+    animation: navbar-link-enter 0.35s ease both;
+  }
+
+  .navbar-menu.open a:nth-child(1) {
+    animation-delay: 0.06s;
+  }
+
+  .navbar-menu.open a:nth-child(2) {
+    animation-delay: 0.10s;
+  }
+
+  .navbar-menu.open a:nth-child(3) {
+    animation-delay: 0.14s;
+  }
+
+  .navbar-menu.open a:nth-child(4) {
+    animation-delay: 0.18s;
+  }
+
+  .navbar-menu.open a:nth-child(5) {
+    animation-delay: 0.22s;
+  }
+
+  .navbar-menu.open a:nth-child(6) {
+    animation-delay: 0.26s;
+  }
+}
+
+@keyframes navbar-link-enter {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar-menu.open a,
+  .navbar-menu .navbar-resume:hover::before {
+    animation: none;
+  }
+
+  .navbar-logo,
+  .navbar-logo::after,
+  .navbar-menu a:not(.navbar-resume),
+  .navbar-menu a:not(.navbar-resume)::after,
+  .navbar-link-number {
+    transition: none;
+  }
+
+  .navbar-logo:hover,
+  .navbar-menu a:not(.navbar-resume):hover,
+  .navbar-menu a:hover .navbar-link-number {
+    transform: none;
   }
 }

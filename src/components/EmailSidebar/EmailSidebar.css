@@ -1,48 +1,104 @@
 .email-sidebar {
   position: fixed;
-
-  right: 36px;
+  right: 24px;
   bottom: 0;
-
   z-index: 20;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 24px;
+
+  animation: email-sidebar-enter 0.7s ease both;
 }
 
 .email-sidebar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 44px;
+  padding: 8px;
+
   writing-mode: vertical-rl;
 
-  color: var(--slate);
+  color: #e0eafb;
 
   font-family: var(--font-mono);
   font-size: 12px;
-
   letter-spacing: 0.12em;
 
-  transition: var(--transition);
-}
-
-.email-sidebar a:hover {
-  color: var(--teal);
-
-  transform: translateY(-4px);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .email-sidebar-line {
   width: 1px;
   height: 90px;
 
-  background: var(--slate);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.08)
+  );
+
+  transform-origin: bottom;
+  animation: email-line-enter 0.8s ease both;
 }
 
-/* Hide on smaller screens */
+.email-sidebar a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .email-sidebar a:hover {
+    color: #ffffff;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes email-sidebar-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes email-line-enter {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
 
 @media (max-width: 1200px) {
   .email-sidebar {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .email-sidebar,
+  .email-sidebar-line {
+    animation: none;
+  }
+
+  .email-sidebar a {
+    transition: none;
+  }
+
+  .email-sidebar a:hover {
+    transform: none;
   }
 }
